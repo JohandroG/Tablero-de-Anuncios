@@ -25,7 +25,6 @@ body{
     -ms-border-radius: 18px ;
     -o-border-radius: 18px ;
     margin: 10px;
-
     background-color: white;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.9);
     text-align: center;
@@ -113,10 +112,7 @@ body{
     -o-transform: scale(1.2);
 }
 
-.notice:hover {
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
-    transform: scale(1.15);
-}
+
 
 .notice {
     transition: 0.5s ease;
@@ -265,6 +261,11 @@ body{
     
     .welcome{
         height: 4.3rem;
+    }
+
+    .notice:hover {
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+        transform: scale(1.15);
     }
 
 
