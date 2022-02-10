@@ -53,7 +53,7 @@
                             <fa-icon [icon]="['fas','exclamation-circle']" style="font-size: 40px; color: rgb(160, 16, 16);"></fa-icon>
                         </p>
                     </div>
-                    <img class="image" *ngIf="notice.picture" [src]="notice.picture" alt="Imagen"/>
+                    <img class="image" *ngIf="notice.picture" src="https://tablero-a-api.herokuapp.com/{{notice.picture}}" alt="Imagen"/>
                     <img class="image" *ngIf="!notice.picture" src="https://images.assetsdelivery.com/compings_v2/provector/provector1501/provector150100121.jpg" alt="Imagen"/>
                 </div>
                 <div class="notice-text">
