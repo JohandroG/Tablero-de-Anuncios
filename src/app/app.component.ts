@@ -15,26 +15,26 @@ export class AppComponent {
   public constructor(private titleService: Title,
     private meta: Meta) { }
 
-  ngOnInit(): void {
-    this.setTitle("Anuncios")
-    this.setMetas()
-  }
+  // ngOnInit(): void {
+  //   this.setTitle("Prueba")
+  //   this.setMetas()
+  // }
 
-  public setTitle(newTitle: string) {
-    this.titleService.setTitle(newTitle);
-  }
-
-
-  // <meta name="apple-mobile-web-app-title" content="Anuncios">
-  // <meta name="apple-mobile-web-app-capable" content="yes">
-  // <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  // public setTitle(newTitle: string) {
+  //   this.titleService.setTitle(newTitle);
+  // }
 
 
-  public setMetas(){
-    this.meta.addTag({ name: 'apple-mobile-web-app-title', content: 'Anuncios' })
-    this.meta.addTag({ name: 'apple-mobile-web-app-capable', content: 'yes' })
-    this.meta.addTag({ name: 'apple-mobile-web-app-status-bar-style', content: 'black' })
-  }
+   // <meta name="apple-mobile-web-app-title" content="Anuncios">
+   // <meta name="apple-mobile-web-app-capable" content="yes">
+   // <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+  // public setMetas(){
+  //   this.meta.addTag({ name: 'apple-mobile-web-app-title', content: 'Anuncios' })
+  //   this.meta.addTag({ name: 'apple-mobile-web-app-capable', content: 'yes' })
+  //   this.meta.addTag({ name: 'apple-mobile-web-app-status-bar-style', content: 'black' })
+  // }
 
 
 
