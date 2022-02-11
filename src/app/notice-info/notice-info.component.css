@@ -62,7 +62,7 @@ mat-card{
 
 .info h3{
     font-size: 20px;
-    text-align: justify;
+    text-align: left;
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px){ 
