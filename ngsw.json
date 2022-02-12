@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1644557394377,
+  "timestamp": 1644650693184,
   "index": "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://JohandroG.github.io/Tablero-de-Anuncios/favicon.ico",
         "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
-        "https://JohandroG.github.io/Tablero-de-Anuncios/main.d95640e28ead0bab.js",
+        "https://JohandroG.github.io/Tablero-de-Anuncios/main.a944a85ffad8c19d.js",
         "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest",
         "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.ac2e62bdffa05392.js",
         "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js",
@@ -41,7 +41,9 @@
         "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-72x72.png",
         "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-96x96.png"
       ],
-      "patterns": []
+      "patterns": [
+        "https:\\/\\/tablero-a-api\\.herokuapp\\.com\\/.*"
+      ]
     }
   ],
   "dataGroups": [
@@ -71,8 +73,8 @@
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-72x72.png": "fd23fe79da89470d6c2471f621ad4f4440e7e5d8",
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-96x96.png": "128013d7dacb824bfa166df9bfa59d7694cde17a",
     "https://JohandroG.github.io/Tablero-de-Anuncios/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "60007fd4890be26606e7d155a341650c6fdcf906",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/main.d95640e28ead0bab.js": "0c5f18c824fa30c37516f22de3b4068a3ddba256",
+    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "ac98bae36b87d6c5118d9f7acc85062e95a8b444",
+    "https://JohandroG.github.io/Tablero-de-Anuncios/main.a944a85ffad8c19d.js": "3e50ca139c50226aaf10caeb3b3ff5ef8f81cf40",
     "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest": "5aad0db861bffba28fd6633b6dfb1ebe684a1afc",
     "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.ac2e62bdffa05392.js": "fc05197e92b82f21adebd5b120e651fb35e52f07",
     "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js": "8b40ba8975daa186e146fa43a17058706f985c55",
