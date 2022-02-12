@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1644652200818,
+  "timestamp": 1644652391498,
   "index": "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
   "assetGroups": [
     {
@@ -41,9 +41,7 @@
         "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-72x72.png",
         "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-96x96.png"
       ],
-      "patterns": [
-        "https:\\/\\/tablero-a-api\\.herokuapp\\.com\\/.*"
-      ]
+      "patterns": []
     }
   ],
   "dataGroups": [
