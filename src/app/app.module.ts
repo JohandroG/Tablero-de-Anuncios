@@ -19,6 +19,7 @@ import { ForgotPass2Component } from './forgot-pass2/forgot-pass2.component';
 import { EditnoticeComponent } from './editnotice/editnotice.component';
 import { NoticeInfoComponent } from './notice-info/notice-info.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
+import { AboutComponent } from './about/about.component';
 
 //?Services y Pipes
 import {UsersService} from '../app/services/users.service';
@@ -52,6 +53,7 @@ import { environment } from '../environments/environment';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +73,8 @@ import { environment } from '../environments/environment';
     ForgotPass2Component,
     EditnoticeComponent,
     NoticeInfoComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

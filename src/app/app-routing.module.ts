@@ -16,7 +16,7 @@ import { ForgotPass2Component } from './forgot-pass2/forgot-pass2.component';
 import { EditnoticeComponent } from './editnotice/editnotice.component';
 import { NoticeInfoComponent } from './notice-info/notice-info.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
-
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path: '', 
@@ -48,6 +48,9 @@ const routes: Routes = [
   },
   {path: 'perfil/personal', 
   component: MyProfileComponent,
+  },
+  {path: 'info/app/versions', 
+  component: AboutComponent,
   },
 
 

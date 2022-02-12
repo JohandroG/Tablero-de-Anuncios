@@ -24,7 +24,7 @@
         </li>
         <li *ngIf="!admintype" class="nav-item">
             <a href="/Tablero-de-Anuncios/ingresar" class="nav-link">
-                <fa-icon [icon]="['fas','user-check']"></fa-icon>
+                <fa-icon [icon]="['fas','sign-in-alt']"></fa-icon>
                 <span class="link-text">Iniciar Sesión</span>
             </a>
         </li>
@@ -39,7 +39,7 @@
         
         <li *ngIf="admintype === 'Normal' || admintype == 'Total'" class="nav-item">
             <a href="/Tablero-de-Anuncios/nuevo/anuncio" class="nav-link">
-                <fa-icon [icon]="['fas','feather-alt']"></fa-icon>
+                <fa-icon [icon]="['fas','feather']"></fa-icon>
                 <span class="link-text">Publicar Anuncio</span>
             </a>
         </li>
@@ -57,7 +57,7 @@
         </li>
         <li *ngIf="admintype == 'Total'" class="nav-item">
             <a href="/Tablero-de-Anuncios/modificar/codigos" class="nav-link">
-                <fa-icon [icon]="['fas','user-secret']"></fa-icon>
+                <fa-icon [icon]="['fas','key']"></fa-icon>
                 <span class="link-text">Editar Codigos</span>
             </a>
         </li>
@@ -67,6 +67,15 @@
                 <span class="link-text">Cerrar Sesión</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="/Tablero-de-Anuncios/info/app/versions" class="nav-link">
+                <fa-icon [icon]="['fas','info-circle']"></fa-icon>
+                <span class="link-text">Información</span>
+            </a>
+        </li>
+        
+
+        
         
     
     </ul>

@@ -111,8 +111,8 @@ matcher = new MyErrorStateMatcher();
       // this.newNotice.creator = data.creator
 
       if(data.picture){
-        this.imgprev = `https://tablero-a-api.herokuapp.com/${data.picture}`
-        this.imgprev2 = `https://tablero-a-api.herokuapp.com/${data.picture}`
+        this.imgprev = `https://tablero-a-api.herokuapp.com/notices/notice/image/${data.picture}`
+        this.imgprev2 = `https://tablero-a-api.herokuapp.com/notices/notice/image/${data.picture}`
       }
       
     })

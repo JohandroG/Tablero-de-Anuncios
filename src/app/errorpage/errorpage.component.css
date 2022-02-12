@@ -1,0 +1,13 @@
+mat-card{
+    margin: 10px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(0, 93, 233);
+}
+
+.icon{
+    font-size: 47px;
+}

@@ -1,0 +1,47 @@
+mat-card{
+    margin: 15px
+}
+
+.version{
+    padding: 10px;
+    background-color: rgb(221, 221, 221);
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+    margin-bottom: 20px;
+}
+
+.info{
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.infover{
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.infover h4{
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1023px){ 
+    .infover{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 1024px){ 
+    .infover{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
