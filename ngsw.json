@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1644705235000,
+  "timestamp": 1645103372481,
   "index": "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
   "assetGroups": [
     {
@@ -17,7 +17,7 @@
         "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest",
         "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.ac2e62bdffa05392.js",
         "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js",
-        "https://JohandroG.github.io/Tablero-de-Anuncios/styles.0a1ff7393ff777e0.css"
+        "https://JohandroG.github.io/Tablero-de-Anuncios/styles.037a720eca279b1c.css"
       ],
       "patterns": [
         "https:\\/\\/fonts\\.googleapis\\.com\\/.*",
@@ -71,12 +71,12 @@
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-72x72.png": "fd23fe79da89470d6c2471f621ad4f4440e7e5d8",
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-96x96.png": "128013d7dacb824bfa166df9bfa59d7694cde17a",
     "https://JohandroG.github.io/Tablero-de-Anuncios/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "791653cab10b140c096cecfaf728bcba751107ef",
+    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "2093ee596d379ea500bdf68ff68c8f0cfac1479d",
     "https://JohandroG.github.io/Tablero-de-Anuncios/main.f6847495ed0f7989.js": "01459bbf0af57afb49d18a1322323d8e49f3a902",
     "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest": "5aad0db861bffba28fd6633b6dfb1ebe684a1afc",
     "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.ac2e62bdffa05392.js": "fc05197e92b82f21adebd5b120e651fb35e52f07",
     "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js": "8b40ba8975daa186e146fa43a17058706f985c55",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/styles.0a1ff7393ff777e0.css": "c01ed40b84cc78ee6c4ad270925068d999e6bc33"
+    "https://JohandroG.github.io/Tablero-de-Anuncios/styles.037a720eca279b1c.css": "f4ed0ca7b9321f1b0beb131243387b9e2e346192"
   },
   "navigationUrls": [
     {
