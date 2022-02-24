@@ -293,6 +293,7 @@ input:focus + label {
     -ms-transition: 400ms;
     -o-transition: 400ms;
     top: 2vh;
+    z-index: 20;
 }
 
 .hidebg{
@@ -314,6 +315,7 @@ input:focus + label {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     top: 2vh;
+    z-index: 20;
 }
 
 .bg{
@@ -336,7 +338,10 @@ input:focus + label {
 }
 
 .cancel button{
-    font-size: 20px;
+    font-size: 27px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    box-shadow: none;
 }
 
 .error span{

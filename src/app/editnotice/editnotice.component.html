@@ -2,7 +2,7 @@
 
 
     <mat-card class="publish" >
-        <h1 class="maininfo">Actualizar Información</h1>
+        <h1 class="maininfo"><fa-icon [icon]="['fas','edit']"></fa-icon> Actualizar Información</h1>
         <div class="error">
             {{msj.problem}}
             {{msj.noremove}}
@@ -208,7 +208,9 @@
             <mat-card>
                 <div class="cancel">
                     <h1>Eliminar esta publicación</h1>
-                    <button mat-raised-button color="warn" (click)='hideinfo()'>X</button>
+                    <button mat-raised-button color="warn" (click)='hideinfo()'>
+                        <fa-icon [icon]="['fas','times-circle']"></fa-icon>
+                    </button>
                 </div>
                 <h3><strong>Esto eliminará la publicación permanentemente,</strong>
                     esta acción no se puede revertir,
@@ -227,7 +229,9 @@
             <mat-card>
                 <div class="cancel">
                     <h1>Eliminar Imagen</h1>
-                    <button mat-raised-button color="warn" (click)="hideinfo()">X</button>
+                    <button mat-raised-button color="warn" (click)="hideinfo()">
+                        <fa-icon [icon]="['fas','times-circle']"></fa-icon>
+                    </button>
                 </div>
                 <h3><strong>Si esta publicación tiene una imagen la eliminará permanentemente,</strong> 
                     esta acción no se puede revertir,

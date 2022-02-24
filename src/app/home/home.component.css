@@ -190,11 +190,15 @@ body{
     font-weight: 400;
 }
 
+.logo{
+    font-size: 45px;
+    margin-right: 10px;
+}
+
 .search{
     text-align: center;
     height: 60px;
     width: 100%;
-    
     /* !See this */
 }
 

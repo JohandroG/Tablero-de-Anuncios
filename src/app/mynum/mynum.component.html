@@ -1,0 +1,8 @@
+<mat-card>
+<h1>Tu numero</h1>
+    {{numberinfo.number}}
+
+    <p>Tiempo restante para reinicio: <countdown [config]="{leftTime:time}"></countdown></p>
+    <p *ngIf="time == 0">Die</p>
+    <a href="/mi/numero">Volver</a>
+</mat-card>

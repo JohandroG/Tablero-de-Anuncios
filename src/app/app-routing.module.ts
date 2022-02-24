@@ -17,6 +17,9 @@ import { EditnoticeComponent } from './editnotice/editnotice.component';
 import { NoticeInfoComponent } from './notice-info/notice-info.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AboutComponent } from './about/about.component';
+import { MynumComponent } from './mynum/mynum.component';
+import { ViewnumsComponent } from './viewnums/viewnums.component';
+
 
 const routes: Routes = [
   {path: '', 
@@ -51,6 +54,15 @@ const routes: Routes = [
   },
   {path: 'info/app/versions', 
   component: AboutComponent,
+  },
+  {path: 'llamadas/iniciar', 
+  component: CallsComponent,
+  },
+  {path: 'ver/registros', 
+  component: ViewnumsComponent,
+  },
+  {path: 'mi/numero', 
+  component: MynumComponent,
   },
 
 

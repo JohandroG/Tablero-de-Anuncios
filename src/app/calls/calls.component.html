@@ -1,1 +1,23 @@
-<p>calls works!</p>
+<div class="welcome">
+    <div class="logo">
+        <fa-icon [icon]="['fas','phone']"></fa-icon>
+    </div>
+    <div>
+        <h1>Registros Telefónicos</h1>
+        <div class="singnedas" *ngIf="firstname">
+            <h3 id="log">En sesión: {{firstname}} {{lastname}}</h3>
+        </div>
+    </div>
+</div>
+
+<mat-card>
+    <h1>Registros Telefónicos</h1>
+    <h2>¿Deseas empezar?</h2>
+    <a href="/mi/numero">
+        <button class="start" mat-raised-button  color="primary">Empezemos</button>
+    </a>
+    
+
+    <h2>CONSIDERACIONES IMPORTANTES</h2>
+    <p>Info</p>
+</mat-card>

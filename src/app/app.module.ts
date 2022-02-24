@@ -20,11 +20,14 @@ import { EditnoticeComponent } from './editnotice/editnotice.component';
 import { NoticeInfoComponent } from './notice-info/notice-info.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AboutComponent } from './about/about.component';
+import { MynumComponent } from './mynum/mynum.component';
+import { ViewnumsComponent } from './viewnums/viewnums.component';
 
 //?Services y Pipes
 import {UsersService} from '../app/services/users.service';
 import {CodesService} from '../app/services/codes.service';
 import {NoticesService} from '../app/services/notices.service';
+import {PhonesService} from '../app/services/phones.service';
 import { SearchNPipe } from './pipes/search-n.pipe';
 import { DateformatPipe } from './pipes/dateformat.pipe';
 
@@ -48,6 +51,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+
+//?Others
+import { CountdownModule } from 'ngx-countdown';
 
 
 
@@ -74,7 +80,9 @@ import { environment } from '../environments/environment';
     EditnoticeComponent,
     NoticeInfoComponent,
     MyProfileComponent,
-    AboutComponent
+    AboutComponent,
+    MynumComponent,
+    ViewnumsComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +99,7 @@ import { environment } from '../environments/environment';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    CountdownModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
@@ -102,6 +111,7 @@ import { environment } from '../environments/environment';
     UsersService,
     CodesService,
     NoticesService,
+    PhonesService,
     {
       provide: MatPaginatorIntl, 
       useClass: CustomMatPaginatorIntl

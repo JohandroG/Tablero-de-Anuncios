@@ -1,5 +1,8 @@
 <div class="ifno" *ngIf="notices.length == 0">
     <div class="welcome">
+        <div class="logo">
+            <fa-icon [icon]="['fas','newspaper']"></fa-icon>
+        </div>
         <div>
             <h1>Tablero de Anuncios</h1>
             <div class="singnedas" *ngIf="firstname">
@@ -21,6 +24,9 @@
 <div class="ifyes" *ngIf="notices.length > 0">
 
     <div class="welcome">
+        <div class="logo">
+            <fa-icon [icon]="['fas','newspaper']"></fa-icon>
+        </div>
         <div>
             <h1>Tablero de Anuncios</h1>
             <div class="singnedas" *ngIf="firstname">
