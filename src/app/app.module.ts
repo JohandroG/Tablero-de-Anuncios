@@ -51,6 +51,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import {MatSelectModule} from '@angular/material/select';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 //?Others
 import { CountdownModule } from 'ngx-countdown';
@@ -99,7 +101,9 @@ import { CountdownModule } from 'ngx-countdown';
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatSelectModule,
     CountdownModule,
+    MatProgressBarModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
 import {PhonesService} from '../services/phones.service';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {Router, ActivatedRoute, Params} from '@angular/router';
+import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import { flatten } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-mynum',
   templateUrl: './mynum.component.html',
   styleUrls: ['./mynum.component.css']
 })
+
+
 export class MynumComponent implements OnInit {
 
 //!--------------------VARIABLES----------------------------------------------------------------------------
 numberinfo:any = {};
 
-_id:any = "";
+id:any = "";
 firstname:any = "";
 lastname:any = "";
 username:any = "";
@@ -20,25 +26,72 @@ email:any = "";
 admintype:any = "";
 
 time:number = 0;
-minutes:number = 1; // Reset when storage is more than 20 minutes
+minutes:number = 20; // Reset when storage is more than 20 minutes
 now:any = new Date().getTime();
 setupTime:any = sessionStorage.getItem('setupTime');
+indicator:boolean = false;
+
+//--------------------------------------------------------------
+
+_id = new FormControl('')
+publisher = new FormControl('')
+info = new FormControl('', Validators.required)
+type = new FormControl({value: '', disabled: true}, Validators.required)
+notes = new FormControl({value: '', disabled: true}, Validators.maxLength(200))
+user = new FormControl('')
+
+newNumberForm = new FormGroup({
+  _id: this._id,
+  publisher: this.publisher,
+  info: this.info,
+  type: this.type,
+  notes: this.notes,
+  user: this.user,
+})
+
+//--------------------------------------------------------------
+
+msj:any = {}
+
+disabler:boolean = true
+
+
 
 //!--------------------VARIABLES----------------------------------------------------------------------------
 
 
-  constructor(private _router:Router,
-    private _route:ActivatedRoute,
-    private _phoneService:PhonesService) { }
+
+    constructor(private _phoneService:PhonesService,
+      private _router:Router,
+      private _route:ActivatedRoute,
+      private renderer2: Renderer2
+      ) { }
 
   ngOnInit(): void {
     this.getNum();
     this.getFromSession();
   }
 
+  modifyform(event:any):void{
+    if(this.info.value != "No Existe" || this.info.value !== "No Contestó"){
+      this.type.enable();
+      this.notes.enable();
+    }
+    if(this.info.value == "No Existe" || this.info.value == "No Contestó"){
+      this.type.disable()
+      this.notes.disable()
+    }
+    if(this.info.value !== ''){
+      this.disabler = false
+    }
+    console.log("hola");
+    
+  }
+
+
   getFromSession():void{
     //!USER----------------------------------------------------------------------------------
-    this._id = sessionStorage.getItem('userID');
+    this.id = sessionStorage.getItem('userID');
     this.firstname = sessionStorage.getItem('userFirstname');
     this.lastname = sessionStorage.getItem('userLastname');
     this.username = sessionStorage.getItem('userUsername');
@@ -58,6 +111,8 @@ setupTime:any = sessionStorage.getItem('setupTime');
   getNum():void{
 
     this.time = (this.minutes * 60)-(this.now - this.setupTime)/1000
+    
+    setTimeout(()=>{this.indicator = true}, this.time * 1000)
 
     // //?Request a number, if Counter is not present or expired----------------------------------------------------------------
     if(this.setupTime == null || this.now-this.setupTime > this.minutes*60*1000){
@@ -79,6 +134,25 @@ setupTime:any = sessionStorage.getItem('setupTime');
     
   }
 
+  updateNumber(event:any):void{
 
+    if(!this.info.errors && !this.notes.errors && !this.type.errors){
+      this.publisher.setValue(`${this.firstname} ${this.lastname}`)
+      this._id.setValue(this.numberinfo._id)
+      this.user.setValue(this.username)
+
+      console.log(this.newNumberForm.value);
+
+      this._phoneService.updateNum(this.newNumberForm.value)
+      .subscribe((data:any)=>{
+        console.log(data);
+        sessionStorage.removeItem('setupTime');
+      })
+    }
+    else{
+      this.msj.problem = "⚠️ Ha ocurrido un problema"
+    }
+    
+  }
 
 }

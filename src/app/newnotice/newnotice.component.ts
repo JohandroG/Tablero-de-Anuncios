@@ -132,7 +132,6 @@ msj:any = {};
         this.msj = error.error
       }
       )
-
     }
     else{
       this.msj.problem = "⚠️ Ha ocurrido un problema"
