@@ -30,7 +30,7 @@ username:any = "";
 email:any = "";
 admintype:any = "";
 
-
+loader:boolean = true
 //!--VARIABLES------------------------------------------------------------------------------------------
 
 
@@ -77,6 +77,10 @@ admintype:any = "";
     this.username = sessionUsername;
     this.email = sessionEmail;
     this.admintype = sessionAdminType;
+
+    setTimeout(()=>{
+      this.loader = false;
+    },1000 * 5)
   }
 
 

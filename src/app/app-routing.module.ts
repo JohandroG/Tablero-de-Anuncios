@@ -19,7 +19,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AboutComponent } from './about/about.component';
 import { MynumComponent } from './mynum/mynum.component';
 import { ViewnumsComponent } from './viewnums/viewnums.component';
-
+import { NumupdatedComponent } from './numupdated/numupdated.component';
 
 const routes: Routes = [
   {path: '', 
@@ -63,6 +63,9 @@ const routes: Routes = [
   },
   {path: 'mi/numero', 
   component: MynumComponent,
+  },
+  {path: 'numero/actualizado', 
+  component: NumupdatedComponent,
   },
 
 

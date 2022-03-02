@@ -22,6 +22,7 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AboutComponent } from './about/about.component';
 import { MynumComponent } from './mynum/mynum.component';
 import { ViewnumsComponent } from './viewnums/viewnums.component';
+import { NumupdatedComponent } from './numupdated/numupdated.component';
 
 //?Services y Pipes
 import {UsersService} from '../app/services/users.service';
@@ -53,7 +54,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 //?Others
 import { CountdownModule } from 'ngx-countdown';
 
@@ -84,7 +85,8 @@ import { CountdownModule } from 'ngx-countdown';
     MyProfileComponent,
     AboutComponent,
     MynumComponent,
-    ViewnumsComponent
+    ViewnumsComponent,
+    NumupdatedComponent
   ],
   imports: [
     BrowserModule,
@@ -102,6 +104,7 @@ import { CountdownModule } from 'ngx-countdown';
     MatCardModule,
     MatCheckboxModule,
     MatSelectModule,
+    MatExpansionModule,
     CountdownModule,
     MatProgressBarModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

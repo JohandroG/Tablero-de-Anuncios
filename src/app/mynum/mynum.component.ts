@@ -13,6 +13,7 @@ import { flatten } from '@angular/compiler';
 })
 
 
+
 export class MynumComponent implements OnInit {
 
 //!--------------------VARIABLES----------------------------------------------------------------------------
@@ -54,8 +55,9 @@ newNumberForm = new FormGroup({
 msj:any = {}
 
 disabler:boolean = true
+loader:boolean = true
 
-
+panelOpenState = false;
 
 //!--------------------VARIABLES----------------------------------------------------------------------------
 
@@ -68,9 +70,18 @@ disabler:boolean = true
       ) { }
 
   ngOnInit(): void {
+    this.protectURL();
     this.getNum();
     this.getFromSession();
   }
+
+  protectURL():void{
+    const admintype = sessionStorage.getItem('userAdminType');
+    if(!admintype){
+      this._router.navigate( ['/'] )
+    }
+  }
+
 
   modifyform(event:any):void{
     if(this.info.value != "No Existe" || this.info.value !== "No Contestó"){
@@ -84,8 +95,6 @@ disabler:boolean = true
     if(this.info.value !== ''){
       this.disabler = false
     }
-    console.log("hola");
-    
   }
 
 
@@ -100,12 +109,16 @@ disabler:boolean = true
 
     //!PHONE----------------------------------------------------------------------------------
     this.numberinfo.number = sessionStorage.getItem('Phonenumber');
+    this.numberinfo.publisher = sessionStorage.getItem('Phonepublisher');
     this.numberinfo.info = sessionStorage.getItem('Phoneinfo');
     this.numberinfo.type = sessionStorage.getItem('Phonetype');
     this.numberinfo.notes = sessionStorage.getItem('Phonenotes');
     this.numberinfo.updated_at = sessionStorage.getItem('Phoneupdated_at');
     this.numberinfo._id = sessionStorage.getItem('Phone_id');
 
+    setTimeout(()=>{
+      this.loader = false;
+    },1000)
   }
 
   getNum():void{
@@ -122,6 +135,7 @@ disabler:boolean = true
         sessionStorage.setItem('setupTime', this.now);
 
         sessionStorage.setItem('Phonenumber', data.number); //! Session In
+        sessionStorage.setItem('Phonepublisher', data.publisher); //! Session In
         sessionStorage.setItem('Phoneinfo', data.info); //! Session In
         sessionStorage.setItem('Phonetype', data.type); //! Session In
         sessionStorage.setItem('Phonenotes', data.notes); //! Session In
@@ -145,8 +159,10 @@ disabler:boolean = true
 
       this._phoneService.updateNum(this.newNumberForm.value)
       .subscribe((data:any)=>{
-        console.log(data);
         sessionStorage.removeItem('setupTime');
+        console.log(data);
+        
+        this._router.navigate( ['numero/actualizado'] )
       })
     }
     else{

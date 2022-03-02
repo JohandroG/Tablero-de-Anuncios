@@ -1,8 +1,196 @@
 mat-card{
     margin: 10px;
+    width: auto;
 }
 
-/* form{
+.number{
+    text-align: center;
+    background-color: rgb(0,51,103);
+    color: white;
+}
+
+.number h2{
+    font-size: 40px;
+}
+
+.counter{
+    text-align: end;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.newnum{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: rgb(3, 15, 34);
+    padding: 5px 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.counter mat-card{
+    margin: 0;
+    margin-right: 10px;
+    padding: 7px;
+    background-color: rgb(171, 201, 231);
+    color: black;
+    font-weight: 600;
+}
+
+.called{
+    color: rgb(161, 1, 1);
+}
+
+.mynumber{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mynumber fa-icon{
+    margin-right: 10px;
+}
+
+
+.loading{
+    margin-top: 20px;
+    text-align: center;
+}
+
+form{
     display: flex;
     flex-direction: column;
-} */
+    align-items: center;
+}
+
+form div{
+    width: 100%;
+    margin: 5px 0px;
+}
+
+form div h3{
+    margin: 3px;
+    font-weight: 500;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.but{
+    display: flex;
+    justify-content: center;
+}
+
+.example-full-width {
+    width: 100%;
+} 
+
+.notes textarea {
+    height: 65px;
+}
+
+.problem{
+    height: 10px;
+    color: red;
+    text-align: center;
+    margin: 5px;
+}
+
+#infodata{
+    text-align: center;
+}
+
+button{
+    transition: 300ms ease;
+        -webkit-transition: 300ms ease;
+        -moz-transition: 300ms ease;
+        -ms-transition: 300ms ease;
+        -o-transition: 300ms ease;
+}
+
+button:hover{
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.but button:disabled{
+    width: 40vw;
+    height: 40px;
+    font-size: 20px;
+    background-color: #f1f1f1;
+}
+
+.but button{
+    width: 50vw;
+    height: 40px;
+    font-size: 20px;
+    background-color: #003367;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1023px){ 
+    .information{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card{
+        width: 70vw;
+    }
+
+    .loading{
+        display: flex;
+        justify-content: center;
+    }
+
+    .loading mat-card{
+        width: 60vw;
+    }
+
+}
+
+@media only screen and (min-width: 1024px){ 
+
+    .loading{
+        display: flex;
+        justify-content: center;
+    }
+
+    .loading mat-card{
+        width: 50vw;
+    }
+
+    .information{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .card{
+        width: 40vw;
+    }
+
+    .but button:disabled{
+        width: 20vw;
+        height: 40px;
+        font-size: 20px;
+        background-color: #f1f1f1;
+    }
+    
+    .but button{
+        width: 30vw;
+        height: 40px;
+        font-size: 20px;
+        background-color: #003367;
+    }
+
+}

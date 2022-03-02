@@ -11,11 +11,28 @@
         </div>
     </div>
 
-    <mat-card class="no-notice">
-        <h1>📄🛑🌐</h1>
-        <h1>No se han publicado anuncios todavía</h1>
-        <h3>o no te has conectado a internet</h3>
-    </mat-card>
+
+
+    <div class="loadinfo">
+        <mat-card class="loading" *ngIf="loader">
+            <h1><fa-icon [icon]="['fas','spinner']" [spin]="true"></fa-icon> Cargando los anuncios...</h1>
+        
+            <mat-card-footer>
+                <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </mat-card-footer>
+        </mat-card>
+    </div>
+
+    <div class="loadinfo">
+        <mat-card class="no-notice loading" *ngIf="!loader">
+            <h1>📄🛑🌐</h1>
+            <h1>
+                No se pudieron cargar los anuncios
+                <a href="/">"Volver a Intentar"</a>
+            </h1>
+            <h3>Tambien puede que no haya anuncios publicados</h3>
+        </mat-card>
+    </div>
     
 </div>
 
@@ -53,15 +70,15 @@
     
     <div class="notice-holder">
         <div class="notice" *ngFor="let notice of notices | searchN: filter_value | pagination: page_size:page_number" >          
-                <div class="notice-image">
+                <a class="notice-image" href="info/anuncio/{{notice._id}}">
                     <div class="important">
                         <p *ngIf="notice.importance">
                             <fa-icon [icon]="['fas','exclamation-circle']" style="font-size: 40px; color: rgb(160, 16, 16);"></fa-icon>
                         </p>
                     </div>
-                    <img class="image" *ngIf="notice.picture" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen"/>
-                    <img class="image" *ngIf="!notice.picture" src="https://images.assetsdelivery.com/compings_v2/provector/provector1501/provector150100121.jpg" alt="Imagen"/>
-                </div>
+                        <img class="image" *ngIf="notice.picture" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen"/>
+                        <img class="image" *ngIf="!notice.picture" src="https://images.assetsdelivery.com/compings_v2/provector/provector1501/provector150100121.jpg" alt="Imagen"/>
+                </a>
                 <div class="notice-text">
                     <span class="date">Publicado el {{notice.created_at | dateformat}}</span>
                     <div class="titlecont">

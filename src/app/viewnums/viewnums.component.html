@@ -1,17 +1,95 @@
-
-
-<div class="paginator">
-    <mat-paginator class="mp1" [length]="numbers.length"
-                    [pageSize]="page_size"
-                    [pageSizeOptions]="pageSizeOptions"
-                    (page)="handlePage($event)"
-                    aria-label="Select page"
-                    hidePageSize="true"
-                    showFirstLastButtons>
-    </mat-paginator>
+<div class="welcome">
+    <div class="logo">
+        <fa-icon [icon]="['fas','glasses']"></fa-icon>
+    </div>
+    <div>
+        <h1>Ver Registros</h1>
+        <div class="singnedas" *ngIf="firstname">
+            <h3 id="log">En sesión: {{firstname}} {{lastname}}</h3>
+        </div>
+    </div>
 </div>
 
-<mat-card class="num" *ngFor="let number of numbers | searchN: filter_value | pagination: page_size:page_number" >
-    {{number.number}}
-    {{number.publisher}}
-</mat-card>
+<div class="loading" *ngIf="loader">
+    <mat-card>
+        <h1><fa-icon [icon]="['fas','spinner']" [spin]="true"></fa-icon> Cargando registros...</h1>
+
+        <mat-card-footer>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+</div>
+
+
+
+<div class="information" *ngIf="!loader">
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>Escoje una opción...</mat-label>
+        <mat-select [(ngModel)]="searchValue" (ngModelChange)="filternums($event)">
+            <mat-option value="No Existe">📄 No Existe</mat-option>
+            <mat-option value="No Contestó">🛑 No Contestó</mat-option>
+            <mat-option value="Es una Casa">🏠 Es una Casa</mat-option>
+            <mat-option value="Es un Negocio">🏢 Es un Negocio</mat-option>
+            <mat-option value="Está Reservado">📗 Quiero reservar el numero</mat-option>
+        </mat-select>
+        <mat-error *ngIf="info.hasError('required')">Escoje una de las opciones</mat-error>
+        <mat-hint>¿Qué tal estuvo la conversación?</mat-hint>
+    </mat-form-field> -->
+    
+    
+    <div class="paginator">
+        <mat-paginator class="mp1" [length]="numbers.length"
+                        [pageSize]="page_size"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="handlePage($event)"
+                        aria-label="Select page"
+                        hidePageSize="true"
+                        showFirstLastButtons>
+        </mat-paginator>
+    </div>
+    
+    <mat-accordion class="num" *ngFor="let number of numbers | searchN: filter_value | pagination: page_size:page_number">
+        <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{number.number}}
+            </mat-panel-title>
+            <mat-panel-description>
+                <p>Info: <strong>{{number.info}}</strong></p>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <div>
+            <h4 *ngIf="number.updated_at !== '1970-01-01T00:00:00.000Z'"><strong>Llamado el {{number.updated_at | dateformat}}</strong></h4>
+            <h4 *ngIf="number.updated_at === '1970-01-01T00:00:00.000Z'"><strong>No ha sido llamado todavía</strong></h4>
+        </div>
+        <p><strong>Publicador:</strong> {{number.publisher || "No Disponible"}}</p>
+        <p><strong>Este número:</strong> {{number.info || "No se ha llamado"}}</p>
+        <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
+        <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
+        
+        <div class="called">
+            <p *ngIf="number.called"><strong>Estado:</strong> Llamado</p>
+            <p *ngIf="!number.called"><strong>Estado:</strong> Sin llamar</p>
+        </div>
+    
+        <div class="calling">
+            <p *ngIf="number.calling"><strong>Actualmente está:</strong> En uso</p>
+            <p *ngIf="!number.calling"><strong>Actualmente está:</strong> Libre para llamar</p>
+        </div>
+    
+        </mat-expansion-panel>
+    </mat-accordion>
+    
+    
+    <div class="paginator">
+        <mat-paginator class="mp2" [length]="numbers.length"
+                        [pageSize]="page_size"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="handlePage($event)"
+                        aria-label="Select page"
+                        showFirstLastButtons>
+        </mat-paginator>
+    </div>
+</div>
