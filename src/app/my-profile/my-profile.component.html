@@ -65,7 +65,7 @@
         de su cuenta porfavor pongase en contacto con el administrador de la aplicación.</p>
     </div>
 
-    <mat-accordion>
+    <mat-accordion *ngIf="reserved.length > 0">
         <mat-expansion-panel>
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -96,6 +96,12 @@
             <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
             <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
         
+
+            <form class="space" (submit)="unRegister($event)">
+                <input type="hidden" value="{{number._id}}" name="remove" id="remove"/>
+                <button mat-raised-button color="primary">Quitar Reservación</button>
+            </form>
+
             </mat-expansion-panel>
         </mat-accordion>
     

@@ -25,6 +25,16 @@ export class PhonesService {
     return this._http.put("http://localhost:8080/phones/update/num",numinfo);
   }
 
+  unRegister(_id:any){
+    return this._http.put("http://localhost:8080/phones/unregister",_id);
+  }
+
+  unCall(info:any){
+    return this._http.put("http://localhost:8080/phones/update/calledreg",info);
+  }
+
+
+
 
   // getUnusedNum(){
   //   return this._http.get("https://tablero-a-api.herokuapp.com/phones/get/num");

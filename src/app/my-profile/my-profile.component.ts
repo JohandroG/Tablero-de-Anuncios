@@ -80,5 +80,16 @@ reserved:any = {}
     })
   }
 
+  unRegister(e:any):void{
+    let _id:string = e.target.remove.value;
+    let body = {_id: _id}
+
+    this._HttpPhonesService.unRegister(body)
+    .subscribe((data:any)=>{
+      alert(data.msj)
+      location.reload()
+    })
+  }
+
 
 }

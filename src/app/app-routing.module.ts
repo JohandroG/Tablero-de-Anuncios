@@ -20,6 +20,7 @@ import { AboutComponent } from './about/about.component';
 import { MynumComponent } from './mynum/mynum.component';
 import { ViewnumsComponent } from './viewnums/viewnums.component';
 import { NumupdatedComponent } from './numupdated/numupdated.component';
+import { ViewnumsconfigComponent } from './viewnumsconfig/viewnumsconfig.component';
 
 const routes: Routes = [
   {path: '', 
@@ -60,6 +61,9 @@ const routes: Routes = [
   },
   {path: 'ver/registros', 
   component: ViewnumsComponent,
+  },
+  {path: 'ver/registros/config', 
+  component: ViewnumsconfigComponent,
   },
   {path: 'mi/numero', 
   component: MynumComponent,

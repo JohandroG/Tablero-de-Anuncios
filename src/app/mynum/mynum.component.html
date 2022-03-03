@@ -87,7 +87,7 @@
                     <mat-label>Escoje una opción...</mat-label>
                     <mat-select formControlName="type">
                         <mat-option value="Era una persona">😄 Hablé con la persona</mat-option>
-                        <mat-option value="Era Testigo de Jehová">📘 Era un "hermano(a)"</mat-option>
+                        <mat-option value="Era un hermano(a)">📘 Era un "hermano(a)"</mat-option>
                         <mat-option value="Pidió no Llamar">🛑 Pidió que no le llamaran</mat-option>
                     </mat-select>
                     <mat-error *ngIf="type.hasError('required')">Porfavor escoje una de las opciones</mat-error>
@@ -111,7 +111,6 @@
     
             <div class="but">
                 <button mat-raised-button color="primary" [disabled]="disabler">Llamado</button>
-                
             </div>
             <h3 class="problem">
                 {{msj.problem}}

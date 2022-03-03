@@ -23,6 +23,7 @@ import { AboutComponent } from './about/about.component';
 import { MynumComponent } from './mynum/mynum.component';
 import { ViewnumsComponent } from './viewnums/viewnums.component';
 import { NumupdatedComponent } from './numupdated/numupdated.component';
+import { ViewnumsconfigComponent } from './viewnumsconfig/viewnumsconfig.component';
 
 //?Services y Pipes
 import {UsersService} from '../app/services/users.service';
@@ -86,7 +87,8 @@ import { CountdownModule } from 'ngx-countdown';
     AboutComponent,
     MynumComponent,
     ViewnumsComponent,
-    NumupdatedComponent
+    NumupdatedComponent,
+    ViewnumsconfigComponent
   ],
   imports: [
     BrowserModule,
