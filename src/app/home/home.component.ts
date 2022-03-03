@@ -1,6 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import {Router, ActivatedRoute, Params} from '@angular/router';
+import { of } from 'rxjs';
 import {NoticesService} from '../services/notices.service';
 
 @Component({
@@ -31,6 +33,7 @@ email:any = "";
 admintype:any = "";
 
 loader:boolean = true
+today:any = new Date();
 //!--VARIABLES------------------------------------------------------------------------------------------
 
 
@@ -57,8 +60,22 @@ loader:boolean = true
   getallNotices():void{
     this._HttpNoticesService.requestallNotices()
     .subscribe((result:any)=>{
+
+      result.sort((a:any,b:any)=>{
+        if(a.importance !== true){
+          return -1;
+        }
+        else{
+          return 0;
+        }
+      })
+      
       this.notices = result.reverse();
+      console.log(this.notices[0].created_at);
     })
+
+    console.log(this.today);
+    
     
     
   }

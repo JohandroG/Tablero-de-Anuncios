@@ -115,6 +115,11 @@ matcher = new MyErrorStateMatcher();
         this.imgprev2 = `https://tablero-a-api.herokuapp.com/notices/notice/image/${data.picture}`
       }
       
+    },
+    (error:any)=>{
+      if(!this.newNotice.title){
+        this._router.navigate( ['/'] )
+      } //------------------------------------------------------------To not charge empty
     })
   }
 

@@ -65,6 +65,43 @@
         de su cuenta porfavor pongase en contacto con el administrador de la aplicación.</p>
     </div>
 
+    <mat-accordion>
+        <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Tus numeros reservados
+            </mat-panel-title>
+            <mat-panel-description>
+                <p>Toca para ver</p>
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+    
+        <mat-accordion class="num" *ngFor="let number of reserved">
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{number.number}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    <p><strong>Lo reservaste</strong></p>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <div class="date">
+                <h4 *ngIf="number.updated_at !== '1970-01-01T00:00:00.000Z'"><strong>Llamado el {{number.updated_at | dateformat}}</strong></h4>
+                <h4 *ngIf="number.updated_at === '1970-01-01T00:00:00.000Z'"><strong>No ha sido llamado todavía</strong></h4>
+            </div>
+            <p><strong>Publicador:</strong> {{number.publisher || "No Disponible"}}</p>
+            <p><strong>Este número:</strong> {{number.info || "No se ha llamado"}}</p>
+            <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
+            <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
+        
+            </mat-expansion-panel>
+        </mat-accordion>
+    
+        </mat-expansion-panel>
+    </mat-accordion>
+
 </mat-card>
 
 

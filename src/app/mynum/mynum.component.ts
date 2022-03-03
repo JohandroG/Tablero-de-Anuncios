@@ -119,30 +119,39 @@ panelOpenState = false;
     setTimeout(()=>{
       this.loader = false;
     },1000)
+
   }
 
   getNum():void{
 
     this.time = (this.minutes * 60)-(this.now - this.setupTime)/1000
-    
-    setTimeout(()=>{this.indicator = true}, this.time * 1000)
 
+    setTimeout(()=>{this.indicator = true}, this.time * 1000)
     // //?Request a number, if Counter is not present or expired----------------------------------------------------------------
     if(this.setupTime == null || this.now-this.setupTime > this.minutes*60*1000){
       this._phoneService.getUnusedNum()
-      .subscribe((data:any)=>{  
-        sessionStorage.removeItem('setupTime');
-        sessionStorage.setItem('setupTime', this.now);
+      .subscribe((data:any)=>{
 
-        sessionStorage.setItem('Phonenumber', data.number); //! Session In
-        sessionStorage.setItem('Phonepublisher', data.publisher); //! Session In
-        sessionStorage.setItem('Phoneinfo', data.info); //! Session In
-        sessionStorage.setItem('Phonetype', data.type); //! Session In
-        sessionStorage.setItem('Phonenotes', data.notes); //! Session In
-        sessionStorage.setItem('Phoneupdated_at', data.updated_at); //! Session In
-        sessionStorage.setItem('Phone_id', data._id); //! Session In
+          sessionStorage.removeItem('setupTime');
+          sessionStorage.setItem('setupTime', this.now);
+          
+          sessionStorage.setItem('Phonenumber', data.number); //! Session In
+          sessionStorage.setItem('Phonepublisher', data.publisher); //! Session In
+          sessionStorage.setItem('Phoneinfo', data.info); //! Session In
+          sessionStorage.setItem('Phonetype', data.type); //! Session In
+          sessionStorage.setItem('Phonenotes', data.notes); //! Session In
+          sessionStorage.setItem('Phoneupdated_at', data.updated_at); //! Session In
+          sessionStorage.setItem('Phone_id', data._id); //! Session In
+
+          sessionStorage.setItem('NoNums', data.nonums); //! Session In
+          
+          location.reload()
         
-        location.reload()
+      },
+      (error:any)=>{
+        window.alert("Parece que no quedan mas numeros, porfavor ponte en contacto con los creadores de la app")
+        this._router.navigate( ['/llamadas/iniciar'] )
+        sessionStorage.removeItem('setupTime');
       })
     }
     

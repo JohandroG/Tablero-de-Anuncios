@@ -40,6 +40,11 @@ export class NoticeInfoComponent implements OnInit {
     this._HttpNoticesService.findNotice(this._id)
     .subscribe((data:any)=>{
       this.notice = data
+    },
+    (error:any)=>{
+      if(!this.notice.title){
+        this._router.navigate( ['/'] )
+      } //------------------------------------------------------------To not charge empty
     })
   }
 

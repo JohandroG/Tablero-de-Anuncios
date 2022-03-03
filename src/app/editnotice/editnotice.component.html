@@ -99,15 +99,14 @@
                 <div class="notice-holder">
                     <div class="notice" >          
                             <div class="notice-image">
-                                <div class="important">
-                                    <p *ngIf="newNotice.importance">
-                                        <fa-icon [icon]="['fas','exclamation-circle']" style="font-size: 40px; color: rgb(160, 16, 16);"></fa-icon>
-                                    </p>
-                                </div>
                                 <img class="image" *ngIf="imgprev" [src]="imgprev" alt="Imagen"/>
                                 <img class="image" *ngIf="!imgprev" src="https://images.assetsdelivery.com/compings_v2/provector/provector1501/provector150100121.jpg" alt="Imagen"/>
                             </div>
                             <div class="notice-text">
+                                <p *ngIf="newNotice.importance" class="important">
+                                    <fa-icon [icon]="['fas','exclamation-circle']"></fa-icon>
+                                    Importante
+                                </p>
                                 <span class="date">Publicado hoy</span>
                                 <div class="titlecont">
                                     <h2 *ngIf="newNotice.title">{{newNotice.title}}</h2>

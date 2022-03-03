@@ -23,6 +23,11 @@
 
 
 <div class="information" *ngIf="!loader">
+
+    <div class="config">
+        <button mat-raised-button color="primary"><fa-icon [icon]="['fas','cog']"></fa-icon> Configuración</button>
+    </div>
+
     <!-- <mat-form-field appearance="fill">
         <mat-label>Escoje una opción...</mat-label>
         <mat-select [(ngModel)]="searchValue" (ngModelChange)="filternums($event)">
@@ -69,14 +74,16 @@
         <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
         <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
         
-        <div class="called">
-            <p *ngIf="number.called"><strong>Estado:</strong> Llamado</p>
-            <p *ngIf="!number.called"><strong>Estado:</strong> Sin llamar</p>
-        </div>
-    
-        <div class="calling">
-            <p *ngIf="number.calling"><strong>Actualmente está:</strong> En uso</p>
-            <p *ngIf="!number.calling"><strong>Actualmente está:</strong> Libre para llamar</p>
+        <div class="bottom">
+            <div class="called bottominfo">
+                <p *ngIf="number.called"><strong>Estado:</strong> Llamado</p>
+                <p *ngIf="!number.called"><strong>Estado:</strong> Sin llamar</p>
+            </div>
+            
+            <div class="calling bottominfo">
+                <p *ngIf="number.calling"><strong>Está:</strong> En uso</p>
+                <p *ngIf="!number.calling"><strong>Está:</strong> Libre</p>
+            </div>
         </div>
     
         </mat-expansion-panel>

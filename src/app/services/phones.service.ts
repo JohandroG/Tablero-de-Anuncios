@@ -17,6 +17,10 @@ export class PhonesService {
     return this._http.get("http://localhost:8080/phones/get/allnum");
   }
 
+  getReservedNums(user:any){
+    return this._http.get(`http://localhost:8080/phones/get/resnum/${user}`);
+  }
+
   updateNum(numinfo:any){
     return this._http.put("http://localhost:8080/phones/update/num",numinfo);
   }

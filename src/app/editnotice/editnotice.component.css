@@ -42,8 +42,9 @@
 
 .notice-text{
     grid-area: text;
-    margin: 20px;
-    overflow: hidden;
+    margin: 25px;
+    overflow: visible;
+    position: relative;
 }
 
 .notice-text .date {
@@ -119,13 +120,18 @@
     margin:20px;
 }
 
-.important p {
+.important {
     border-radius: 100px;
-    padding: 5px;
+    padding: 1px 10px;
     z-index: 5;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: -37px;
+    left: -20px;
+    background-color: rgb(160, 16, 16);
+    color: rgb(255, 255, 255) !important;
+    font-weight: 500 !important;
+    border: 2px solid rgb(160, 16, 16);
+    box-shadow: 1px 1px 2px  black;
 }
 
 .importantstats{

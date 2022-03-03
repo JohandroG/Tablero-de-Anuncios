@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {NoticesService} from '../services/notices.service';
+import {PhonesService} from '../services/phones.service';
 
 @Component({
   selector: 'app-my-profile',
@@ -30,11 +31,13 @@ username:any = "";
 email:any = "";
 admintype:any = "";
 
+reserved:any = {}
 
 //!--VARIABLES------------------------------------------------------------------------------------------
 
 
   constructor(private _HttpNoticesService: NoticesService,
+    private _HttpPhonesService: PhonesService,
     private _router:Router,
     private _route:ActivatedRoute,
     ) { }
@@ -42,6 +45,7 @@ admintype:any = "";
   ngOnInit(): void {
     this.getFromSession();
     this.protectURL();
+    this.loadreserved();
   }
 
   protectURL():void{
@@ -65,6 +69,15 @@ admintype:any = "";
     this.username = sessionUsername;
     this.email = sessionEmail;
     this.admintype = sessionAdminType;
+
+  }
+
+  loadreserved():void{
+
+    this._HttpPhonesService.getReservedNums(this.username)
+    .subscribe((data:any)=>{
+      this.reserved = data
+    })
   }
 
 

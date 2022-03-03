@@ -71,15 +71,16 @@
     <div class="notice-holder">
         <div class="notice" *ngFor="let notice of notices | searchN: filter_value | pagination: page_size:page_number" >          
                 <a class="notice-image" href="info/anuncio/{{notice._id}}">
-                    <div class="important">
-                        <p *ngIf="notice.importance">
-                            <fa-icon [icon]="['fas','exclamation-circle']" style="font-size: 40px; color: rgb(160, 16, 16);"></fa-icon>
-                        </p>
-                    </div>
                         <img class="image" *ngIf="notice.picture" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen"/>
                         <img class="image" *ngIf="!notice.picture" src="https://images.assetsdelivery.com/compings_v2/provector/provector1501/provector150100121.jpg" alt="Imagen"/>
                 </a>
                 <div class="notice-text">
+
+                    <p *ngIf="notice.importance" class="important">
+                        <fa-icon [icon]="['fas','exclamation-circle']"></fa-icon>
+                        Importante
+                    </p>
+
                     <span class="date">Publicado el {{notice.created_at | dateformat}}</span>
                     <div class="titlecont">
                         <h2>{{notice.title}}</h2>

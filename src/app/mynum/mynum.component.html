@@ -12,9 +12,12 @@
     <mat-card class="card">
         
         <mat-card class="number">
-            <h1>Tu número es:</h1>
+            <h1 *ngIf="!indicator">Tu número es:</h1>
+            <h1 *ngIf="indicator">Tu número:</h1>
+
             <h2 class="mynumber" *ngIf="!indicator"><fa-icon [icon]="['fas','phone-square-alt']"></fa-icon> {{numberinfo.number}}</h2>
             <h2 class="mynumber" *ngIf="indicator"><fa-icon [icon]="['fas','bell']"></fa-icon> Ha expirado</h2>
+
             <a href="/mi/numero" class="newnum" *ngIf="indicator">Solicitar nuevo</a>
         </mat-card>
 
@@ -84,7 +87,7 @@
                     <mat-label>Escoje una opción...</mat-label>
                     <mat-select formControlName="type">
                         <mat-option value="Era una persona">😄 Hablé con la persona</mat-option>
-                        <mat-option value="Era Testigo de Jehová">📘 Era un "testigo de Jehová"</mat-option>
+                        <mat-option value="Era Testigo de Jehová">📘 Era un "hermano(a)"</mat-option>
                         <mat-option value="Pidió no Llamar">🛑 Pidió que no le llamaran</mat-option>
                     </mat-select>
                     <mat-error *ngIf="type.hasError('required')">Porfavor escoje una de las opciones</mat-error>
