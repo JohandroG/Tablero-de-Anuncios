@@ -48,6 +48,9 @@ export class ViewnumsComponent implements OnInit {
     this._phoneService.getAllNums()
     .subscribe((data:any)=>{
       this.numbers = data
+      setTimeout(()=>{
+        this.loader = false;
+      },1000 * 1)
     })
   }
 
@@ -71,9 +74,7 @@ export class ViewnumsComponent implements OnInit {
     this.email = sessionEmail;
     this.admintype = sessionAdminType;
 
-    setTimeout(()=>{
-      this.loader = false;
-    },1000 * 2)
+    
   }
 
   filternums(event:any):void{

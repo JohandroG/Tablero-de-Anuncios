@@ -97,7 +97,7 @@ today:any = new Date();
 
     setTimeout(()=>{
       this.loader = false;
-    },1000 * 5)
+    },1000 * 10)
   }
 
 

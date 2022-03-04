@@ -7,7 +7,7 @@ constructor() {
     super();
 }
 
-override itemsPerPageLabel = 'Anuncios por página: ';
+override itemsPerPageLabel = 'Items por página: ';
 override nextPageLabel = 'Página siguiente';
 override previousPageLabel = 'Página anterior';
 override firstPageLabel: string = "Primera Pagina";

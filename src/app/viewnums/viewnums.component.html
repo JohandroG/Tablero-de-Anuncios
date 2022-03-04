@@ -24,7 +24,7 @@
 
 <div class="information" *ngIf="!loader">
 
-    <a class="config" href="/ver/registros/config">
+    <a class="config" href="/Tablero-de-Anuncios/ver/registros/config">
         <button mat-raised-button color="primary"><fa-icon [icon]="['fas','cog']"></fa-icon> Configuración</button>
     </a>
 
@@ -43,54 +43,6 @@
     
     
     <div class="paginator">
-        <mat-paginator class="mp1" [length]="numbers.length"
-                        [pageSize]="page_size"
-                        [pageSizeOptions]="pageSizeOptions"
-                        (page)="handlePage($event)"
-                        aria-label="Select page"
-                        hidePageSize="true"
-                        showFirstLastButtons>
-        </mat-paginator>
-    </div>
-    
-    <mat-accordion class="num" *ngFor="let number of numbers | searchN: filter_value | pagination: page_size:page_number">
-        <mat-expansion-panel (opened)="panelOpenState = true"
-                            (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                {{number.number}}
-            </mat-panel-title>
-            <mat-panel-description>
-                <p>Info: <strong>{{number.info}}</strong></p>
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-    
-        <div>
-            <h4 *ngIf="number.updated_at !== '1970-01-01T00:00:00.000Z'"><strong>Llamado el {{number.updated_at | dateformat}}</strong></h4>
-            <h4 *ngIf="number.updated_at === '1970-01-01T00:00:00.000Z'"><strong>No ha sido llamado todavía</strong></h4>
-        </div>
-        <p><strong>Publicador:</strong> {{number.publisher || "No Disponible"}}</p>
-        <p><strong>Este número:</strong> {{number.info || "No se ha llamado"}}</p>
-        <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
-        <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
-        
-        <div class="bottom">
-            <div class="called bottominfo">
-                <p *ngIf="number.called"><strong>Estado:</strong> Llamado</p>
-                <p *ngIf="!number.called"><strong>Estado:</strong> Sin llamar</p>
-            </div>
-            
-            <div class="calling bottominfo">
-                <p *ngIf="number.calling"><strong>Está:</strong> En uso</p>
-                <p *ngIf="!number.calling"><strong>Está:</strong> Libre</p>
-            </div>
-        </div>
-    
-        </mat-expansion-panel>
-    </mat-accordion>
-    
-    
-    <div class="paginator">
         <mat-paginator class="mp2" [length]="numbers.length"
                         [pageSize]="page_size"
                         [pageSizeOptions]="pageSizeOptions"
@@ -99,4 +51,43 @@
                         showFirstLastButtons>
         </mat-paginator>
     </div>
+    
+    <div class="num" *ngFor="let number of numbers | searchN: filter_value | pagination: page_size:page_number">
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{number.number}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    <p>Info: <strong>{{number.info}}</strong></p>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <div>
+                <h4 *ngIf="number.updated_at !== '1970-01-01T00:00:00.000Z'"><strong>Llamado el {{number.updated_at | dateformat}}</strong></h4>
+                <h4 *ngIf="number.updated_at === '1970-01-01T00:00:00.000Z'"><strong>No ha sido llamado todavía</strong></h4>
+            </div>
+            <p><strong>Publicador:</strong> {{number.publisher || "No Disponible"}}</p>
+            <p><strong>Este número:</strong> {{number.info || "No se ha llamado"}}</p>
+            <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
+            <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
+            
+            <div class="bottom">
+                <div class="called bottominfo">
+                    <p *ngIf="number.called"><strong>Estado:</strong> Llamado</p>
+                    <p *ngIf="!number.called"><strong>Estado:</strong> Sin llamar</p>
+                </div>
+                
+                <div class="calling bottominfo">
+                    <p *ngIf="number.calling"><strong>Está:</strong> En uso</p>
+                    <p *ngIf="!number.calling"><strong>Está:</strong> Libre</p>
+                </div>
+            </div>
+        
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    
 </div>

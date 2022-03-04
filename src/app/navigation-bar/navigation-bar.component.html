@@ -17,7 +17,7 @@
             </a>
         </li>
         <li *ngIf="admintype" class="nav-item">
-            <a href="/llamadas/iniciar" class="nav-link">
+            <a href="/Tablero-de-Anuncios/llamadas/iniciar" class="nav-link">
                 <fa-icon [icon]="['fas','phone']"></fa-icon>
                 <span class="link-text">Llamadas</span>
             </a>
@@ -36,7 +36,6 @@
         </li>
 
 
-        
         <li *ngIf="admintype === 'Normal' || admintype == 'Total'" class="nav-item">
             <a href="/Tablero-de-Anuncios/nuevo/anuncio" class="nav-link">
                 <fa-icon [icon]="['fas','feather']"></fa-icon>
@@ -44,7 +43,7 @@
             </a>
         </li>
         <li *ngIf="admintype === 'Normal' || admintype == 'Total'" class="nav-item">
-            <a href="ver/registros" class="nav-link">
+            <a href="/Tablero-de-Anuncios/ver/registros" class="nav-link">
                 <fa-icon [icon]="['fas','glasses']"></fa-icon>
                 <span class="link-text">Ver Registros</span>
             </a>
