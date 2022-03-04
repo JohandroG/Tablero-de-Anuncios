@@ -1,6 +1,16 @@
-<mat-card>
-    <h1>Muchas Gracias</h1>
-    <a href="/mi/numero">
-        Solicitar Otro numero
-    </a>
-</mat-card>
+<div class="main">
+    <mat-card>
+        <h1>📞 ¡El número ha sido actualizado exitosamente! 📘</h1>
+        <h3>Agradecemos el excelente trabajo que estás haciendo para mantener los registros teléfonicos actualizados.</h3>
+        <h2>¿Que deseas hacer ahora?</h2>
+    
+        <div class="options">
+            <a href="/mi/numero">
+                <button mat-raised-button color="primary"><fa-icon [icon]="['fas','phone']"></fa-icon> Llamar de nuevo</button>
+            </a>
+            <a class="config" href="/llamadas/iniciar">
+                <button mat-raised-button color="primary"><fa-icon [icon]="['fas','phone-slash']"></fa-icon> He Terminado</button>
+            </a>
+        </div>
+    </mat-card>
+</div>

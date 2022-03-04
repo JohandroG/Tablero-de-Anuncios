@@ -34,8 +34,8 @@
                 <li>Publicar anuncios</li>
                 <li>Editar todos los anuncios</li>
                 <li>Cambiar los códigos de acceso para crear usuarios</li>
-                <li>(Proximamente) Contribuir a llenar los registros telefónicos</li>
-                <li>(Proximamente) Visualizar la informacion de los registros telefónicos</li>
+                <li>Contribuir a llenar los registros telefónicos</li>
+                <li>Visualizar la informacion de los registros telefónicos</li>
             </ul>
         </h4>
         
@@ -45,8 +45,8 @@
                 <li>Ver y leer anuncios publicados</li>
                 <li>Publicar anuncios</li>
                 <li>Editar tus propios anuncios</li>
-                <li>(Proximamente) Contribuir a llenar los registros telefónicos</li>
-                <li>(Proximamente) Visualizar la informacion de los registros telefónicos</li>
+                <li>Contribuir a llenar los registros telefónicos</li>
+                <li>Visualizar la informacion de los registros telefónicos</li>
             </ul>
         </h4>
         
@@ -54,7 +54,7 @@
             Tienes <strong>ACCESO A LOS REGISTROS</strong> de la plataforma, puedes:
             <ul>
                 <li>Ver y leer anuncios publicados</li>
-                <li>(Proximamente) Contribuir a llenar los registros telefónicos</li>
+                <li>Contribuir a llenar los registros telefónicos</li>
             </ul>
         </h4>
     </div>
@@ -76,34 +76,36 @@
             </mat-panel-description>
         </mat-expansion-panel-header>
     
-        <mat-accordion class="num" *ngFor="let number of reserved">
-            <mat-expansion-panel>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    {{number.number}}
-                </mat-panel-title>
-                <mat-panel-description>
-                    <p><strong>Lo reservaste</strong></p>
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-        
-            <div class="date">
-                <h4 *ngIf="number.updated_at !== '1970-01-01T00:00:00.000Z'"><strong>Llamado el {{number.updated_at | dateformat}}</strong></h4>
-                <h4 *ngIf="number.updated_at === '1970-01-01T00:00:00.000Z'"><strong>No ha sido llamado todavía</strong></h4>
-            </div>
-            <p><strong>Publicador:</strong> {{number.publisher || "No Disponible"}}</p>
-            <p><strong>Este número:</strong> {{number.info || "No se ha llamado"}}</p>
-            <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
-            <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
-        
-
-            <form class="space" (submit)="unRegister($event)">
-                <input type="hidden" value="{{number._id}}" name="remove" id="remove"/>
-                <button mat-raised-button color="primary">Quitar Reservación</button>
-            </form>
-
-            </mat-expansion-panel>
-        </mat-accordion>
+        <div class="num" *ngFor="let number of reserved">
+            <mat-accordion >
+                <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{number.number}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        <p><strong>Lo reservaste</strong></p>
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+            
+                <div class="date">
+                    <h4 *ngIf="number.updated_at !== '1970-01-01T00:00:00.000Z'"><strong>Llamado el {{number.updated_at | dateformat}}</strong></h4>
+                    <h4 *ngIf="number.updated_at === '1970-01-01T00:00:00.000Z'"><strong>No ha sido llamado todavía</strong></h4>
+                </div>
+                <p><strong>Publicador:</strong> {{number.publisher || "No Disponible"}}</p>
+                <p><strong>Este número:</strong> {{number.info || "No se ha llamado"}}</p>
+                <p><strong>Quién contestó:</strong> {{number.type || "N/A"}}</p>
+                <p><strong>Notas:</strong> {{number.notes || "Sin Nota"}}</p>
+            
+            
+                <form class="space" (submit)="unRegister($event)">
+                    <input type="hidden" value="{{number._id}}" name="remove" id="remove"/>
+                    <button mat-raised-button color="primary">Quitar Reservación</button>
+                </form>
+            
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
     
         </mat-expansion-panel>
     </mat-accordion>

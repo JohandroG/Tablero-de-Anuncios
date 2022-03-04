@@ -29,6 +29,21 @@ mat-card{
     font-weight: 600;
 }
 
+.expandtitle{
+    margin: 0;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.works{
+    margin-bottom: 10px;
+}
+
+mat-panel-description{
+    display: flex;
+    align-items: center;
+}
+
 @media only screen and (min-width: 481px) and (max-width: 1023px){ 
     .infover{
         display: flex;

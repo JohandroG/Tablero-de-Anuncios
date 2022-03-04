@@ -56,6 +56,8 @@ import { environment } from '../environments/environment';
 import {MatSelectModule} from '@angular/material/select';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatBadgeModule} from '@angular/material/badge';
+
 //?Others
 import { CountdownModule } from 'ngx-countdown';
 
@@ -108,6 +110,7 @@ import { CountdownModule } from 'ngx-countdown';
     MatSelectModule,
     MatExpansionModule,
     CountdownModule,
+    MatBadgeModule,
     MatProgressBarModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

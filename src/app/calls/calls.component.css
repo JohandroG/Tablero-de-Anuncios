@@ -1,4 +1,4 @@
-mat-card{
+.main{
     margin: 10px;
 }
 
@@ -46,17 +46,60 @@ mat-card{
 }
 
 .start{
-    width: 20vw;
+    width: 70vw;
     height: 40px;
     font-size: 20px;
     background-color: #003367;
 }
 
+.but{
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.startcall{
+    text-align: center;
+}
+
+li{
+    padding-bottom: 20px;
+}
+
+.expandtitle{
+    margin: 0;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.works{
+    margin-bottom: 10px;
+}
+
+mat-panel-description{
+    display: flex;
+    align-items: center;
+}
 
 @media only screen and (min-width: 481px) and (max-width: 1023px){ 
     
     .welcome{
         height: 4.3rem;
+    }
+
+    .start{
+        width: 50vw;
+    }
+
+    .expandtitle{
+        margin: 0;
+        font-weight: 600;
+        font-size: 20px;
     }
 }
 
@@ -64,6 +107,16 @@ mat-card{
 
     .welcome{
         height: 4.3rem;
+    }
+
+    .start{
+        width: 30vw;
+    }
+
+    .expandtitle{
+        margin: 0;
+        font-weight: 600;
+        font-size: 20px;
     }
 
 }

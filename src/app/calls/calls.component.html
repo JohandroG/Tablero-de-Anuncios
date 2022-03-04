@@ -10,17 +10,89 @@
     </div>
 </div>
 
-<mat-card>
-    <h1>Registros Telefónicos</h1>
-    <h2>¿Deseas empezar?</h2>
-    <a href="/mi/numero">
-        <button class="start" mat-raised-button  color="primary">Empezemos</button>
-    </a>
+<mat-card class="main">
     
+    <h1>Bienvenido(a) a los "Registros Telefónicos"</h1>
 
-    <h2>CONSIDERACIONES IMPORTANTES</h2>
 
     
+
+
+    <h2 class="startcall">¿Deseas empezar a llamar?</h2>
+    <div class="but">
+        <a href="/mi/numero">
+            <button class="start" mat-raised-button  color="primary">¡Empezemos!</button>
+        </a>
+    </div>
+    <div class="works">
+        <mat-accordion>
+            <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h3 class="expandtitle">¿Como Funciona?</h3>
+                </mat-panel-title>
+                <mat-panel-description>
+                    Toca para ver
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+        
+            <h4>
+                <strong>Información Basica:</strong>
+                Una ves que presiones en "¡Empezemos!" se te brindara un numero al que puedes llamar
+                este aparecerá en la sección "Tu numero es:" y tendrá una validez de 20 minutos durante
+                los cuales podras usar el formulario para compartir los resultados de tu llamada, si despues de
+                este tiempo no has enviado la información el número expirara y volverá a estar disponible para ser
+                llamado por alguien más.
+            </h4>
+            <h4>
+                <strong>Mi Número:</strong>
+                En esta sección veras el numero que se te ha brindado para que puedas llamar.
+            </h4>
+            <h4>
+                <strong>Información Extra:</strong>
+                Si tocas sobre esta sección podras ver información anterior de llamadas a ese mismo número (Si esta disponible)
+                les animamos a leer esta información para saber que es una persona que no desea ser contactada o a que tipo de 
+                número estamos llamando.
+            </h4>
+            <h4>
+                <strong>Formulario de resultados:</strong>
+                Una ves que hayas llamado al numero que se te brindo puedes compartirnos que tal te fue durante la llamada
+                utilizando las funciones que te brinda el formulario, finalmente puedes presionar en "Publicar" para actualizar
+                definitivamente la informacion de este numero y recibir uno diferente.
+            </h4>
+            <h4>
+                <strong>Tras Publicar:</strong>
+                Tras presionar en la opcion de "Publicar" veras una pantalla que te brindara la opción de recibir un numero diferente
+                para "llamar nuevamente" o "terminar" lo que te llevará nuevamente a esta pantalla una ves que ya no desees seguir realizando
+                llamadas.
+            </h4>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <mat-card>
+        <h2>Puntos "IMPORTANTES" a considerar: </h2>
+
+        <ul>
+            <li>
+                Agradecemos su excelente trabajo y el adecuado uso que hacen a esta aplicación. 😄 
+            </li>
+            <li>
+                Aunque esto es una aplicación para llevar los registros telefónicos de manera organizada
+                de ninguna manera queremos violentar la privacidad de las personas, por lo que 
+                <strong>no incluiremos datos personales, numeros de teléfono ni ninguna información que pueda comprometer la integridad de las personas con las que queremos compartir el mensaje.</strong>
+            </li>
+            <li>
+                Queremos incluir información exacta en los registros por lo que <strong>agradecemos profundamente que los datos
+                que se ingresen sean exactos y verdaderos.</strong>
+            </li>
+            <li>
+                Queremos <strong>marcar un numero como reservado</strong> unicamente si nos comprometimos a revisitar
+                a la persona con la que hablamos, de otra manera porfavor no usar esta opción para no alterar los registros
+            </li>
+        </ul>
+
+    </mat-card>
 
 
 </mat-card>
