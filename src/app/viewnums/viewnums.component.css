@@ -140,6 +140,7 @@ button:hover{
         width: 30vw;
     }
 
+
 }
 
 @media only screen and (min-width: 1024px) {
@@ -166,4 +167,7 @@ button:hover{
         margin-left: 30px;
     }
 
+    .num{
+        margin: 0px 25px;
+    }
 }

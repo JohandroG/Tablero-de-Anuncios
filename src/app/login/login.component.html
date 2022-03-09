@@ -14,7 +14,7 @@
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Email</mat-label>
                 <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                    placeholder="Ej. Anuncio Publico" [(ngModel)]="currentUser.email" name="username" id="username">
+                    placeholder="Ej. mail123@email.com" [(ngModel)]="currentUser.email" name="username" id="username">
                 <mat-hint>Inserta el email</mat-hint>
                 <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                     Porfavor ingresa un email válido
@@ -29,7 +29,7 @@
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Contraseña</mat-label>
             <input type="password" matInput [formControl]="passFormControl" [errorStateMatcher]="matcher"
-                placeholder="Ej. Anuncio Publico" name="password" id="password" [(ngModel)]="currentUser.password">
+                placeholder="Ej. Pass123..." name="password" id="password" [(ngModel)]="currentUser.password">
             <mat-hint>Inserta la contraseña</mat-hint>
             <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
                 Usa al menos 8 caracteres

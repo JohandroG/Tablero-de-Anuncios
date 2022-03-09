@@ -10,11 +10,17 @@ mat-card{
 }
 
 .options a button{
-    width: auto;
+    width: 40vw;
     height: 40px;
     font-size: 15px;
-    vertical-align: middle;
-    background-color: #003367;
+    background-color: #156700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options a{
+    text-decoration: none;
 }
 
 .main{
@@ -23,15 +29,27 @@ mat-card{
     justify-content: center;
 }
 
+.finish button{
+    background-color: rgb(160,16,16) !important;
+}
+
 @media only screen and (min-width: 481px) and (max-width: 1023px){ 
 
     mat-card{
         width: 60vw;
+    }
+
+    .options a button{
+        width: 20vw;
     }
 }
 
 @media only screen and (min-width: 1024px){ 
     mat-card{
         width: 60vw;
+    }
+
+    .options a button{
+        width: 15vw;
     }
 }

@@ -15,7 +15,9 @@
             <h1 *ngIf="!indicator">Tu número es:</h1>
             <h1 *ngIf="indicator">Tu número:</h1>
 
+            <a href="tel:+506{{numberinfo.number.split('-').join('')}}" class="numlink">
             <h2 class="mynumber" *ngIf="!indicator"><fa-icon [icon]="['fas','phone-square-alt']"></fa-icon> {{numberinfo.number}}</h2>
+            </a>
             <h2 class="mynumber" *ngIf="indicator"><fa-icon [icon]="['fas','bell']"></fa-icon> Ha expirado</h2>
 
             <a href="/mi/numero" class="newnum" *ngIf="indicator">Solicitar nuevo</a>

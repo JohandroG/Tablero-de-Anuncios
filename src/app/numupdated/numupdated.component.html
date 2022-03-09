@@ -1,14 +1,14 @@
 <div class="main">
     <mat-card>
         <h1>📞 ¡El número ha sido actualizado exitosamente! 📘</h1>
-        <h3>Agradecemos el excelente trabajo que estás haciendo para mantener los registros teléfonicos actualizados.</h3>
+        <h3>"{{message}}"</h3>
         <h2>¿Que deseas hacer ahora?</h2>
     
         <div class="options">
             <a href="/Tablero-de-Anuncios/mi/numero">
-                <button mat-raised-button color="primary"><fa-icon [icon]="['fas','phone']"></fa-icon> Llamar de nuevo</button>
+                <button mat-raised-button color="primary"><fa-icon [icon]="['fas','phone']"></fa-icon> Llamar Otro</button>
             </a>
-            <a class="config" href="/Tablero-de-Anuncios/llamadas/iniciar">
+            <a class="finish" href="/Tablero-de-Anuncios/llamadas/iniciar">
                 <button mat-raised-button color="primary"><fa-icon [icon]="['fas','phone-slash']"></fa-icon> He Terminado</button>
             </a>
         </div>

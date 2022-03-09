@@ -42,11 +42,30 @@ export class ViewnumsComponent implements OnInit {
   ngOnInit(): void {
     this.loadnums();
     this.getFromSession();
+    this.protectURL();
+  }
+
+  protectURL():void{
+    const admintype = sessionStorage.getItem('userAdminType');
+    if(!admintype || admintype === "Register"){
+      this._router.navigate( ['/'] )
+    }
   }
 
   loadnums():void{
     this._phoneService.getAllNums()
     .subscribe((data:any)=>{
+
+
+      data.sort((a:any,b:any)=>{
+        if(a.number.split("-").join() > b.number.split("-").join()){
+          return -1;
+        }
+        else{
+          return 0;
+        }
+      }).reverse() //-----------------------------------------------------------------Order-Numbers
+
       this.numbers = data
       setTimeout(()=>{
         this.loader = false;

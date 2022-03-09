@@ -28,8 +28,16 @@ export class ViewnumsconfigComponent implements OnInit {
     private renderer2: Renderer2
     ) { }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+      this.protectURL();
+    }
+
+    protectURL():void{
+      const admintype = sessionStorage.getItem('userAdminType');
+      if(!admintype){
+        this._router.navigate( ['/'] )
+      }
+    }
 
   unCallNums(e:any):void{
     if(!this.info.errors){

@@ -33,7 +33,6 @@ email:any = "";
 admintype:any = "";
 
 loader:boolean = true
-today:any = new Date();
 //!--VARIABLES------------------------------------------------------------------------------------------
 
 
@@ -68,13 +67,10 @@ today:any = new Date();
         else{
           return 0;
         }
-      })
+      }).reverse()
       
-      this.notices = result.reverse();
-      console.log(this.notices[0].created_at);
+      this.notices = result;
     })
-
-    console.log(this.today);
     
     
     
