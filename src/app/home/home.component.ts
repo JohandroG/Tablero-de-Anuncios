@@ -67,7 +67,7 @@ loader:boolean = true
         else{
           return 0;
         }
-      }).reverse()
+      })
       
       this.notices = result;
     })

@@ -6,36 +6,21 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CodesService {
 
+  baseURL:string = "https://tablero-a-api.herokuapp.com"
+  // baseURL:string = "http://localhost:8080" 
+
   constructor(private _http: HttpClient) { }
-  
-  // createCodes(){
-  //   this._http.get("http://localhost:8080/codes/normal");
-  //   this._http.get("http://localhost:8080/codes/total");
-  // }
-
-
-  // changeTotal(codeinfo:any){
-  //   return this._http.put("http://localhost:8080/codes/updatetotal",codeinfo);
-  // }
-
-  // changeNormal(codeinfo:any){
-  //   return this._http.put("http://localhost:8080/codes/updatenormal",codeinfo);
-  // }
-
-  // changeRegister(codeinfo:any){
-  //   return this._http.put("http://localhost:8080/codes/updateregister",codeinfo);
-  // }
 
     changeTotal(codeinfo:any){
-      return this._http.put("https://tablero-a-api.herokuapp.com/codes/updatetotal",codeinfo);
+      return this._http.put(this.baseURL + "/codes/updatetotal",codeinfo);
     }
   
     changeNormal(codeinfo:any){
-      return this._http.put("https://tablero-a-api.herokuapp.com/codes/updatenormal",codeinfo);
+      return this._http.put(this.baseURL + "/codes/updatenormal",codeinfo);
     }
   
     changeRegister(codeinfo:any){
-      return this._http.put("https://tablero-a-api.herokuapp.com/codes/updateregister",codeinfo);
+      return this._http.put(this.baseURL + "/codes/updateregister",codeinfo);
     }
   
 

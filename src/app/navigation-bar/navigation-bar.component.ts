@@ -16,7 +16,8 @@ export class NavigationBarComponent implements OnInit {
 
 admintype:any = "";
 
-
+// navigateURL:string = "/Tablero-de-Anuncios"
+navigateURL:string = ""
 
 //!--VARIABLES------------------------------------------------------------------------------------------
 

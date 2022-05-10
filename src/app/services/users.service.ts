@@ -6,41 +6,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersService {
 
+
+  baseURL:string = "https://tablero-a-api.herokuapp.com"
+  // baseURL:string = "http://localhost:8080"
+
+
   constructor(private _http: HttpClient) { }
 
 
-  // createNewUser(newUser:any){
-  //   return this._http.post("http://localhost:8080/admins/create", newUser)
-  // }
-
-  // login(userinfo:any){
-  //   return this._http.post("http://localhost:8080/admins/login", userinfo)
-  // }
-
-  // reqEmail(requestinfo:any){
-  //   return this._http.post("http://localhost:8080/admins/recoverpass", requestinfo)
-  // }
-
-  // changePass(passinfo:any){
-  //   return this._http.post("http://localhost:8080/admins/changepass", passinfo)
-  // }
-
-
-
   createNewUser(newUser:any){
-    return this._http.post("https://tablero-a-api.herokuapp.com/admins/create", newUser)
+    return this._http.post(this.baseURL + "/admins/create", newUser)
   }
 
   login(userinfo:any){
-    return this._http.post("https://tablero-a-api.herokuapp.com/admins/login", userinfo)
+    return this._http.post(this.baseURL + "/admins/login", userinfo)
   }
 
   reqEmail(requestinfo:any){
-    return this._http.post("https://tablero-a-api.herokuapp.com/admins/recoverpass", requestinfo)
+    return this._http.post(this.baseURL + "/admins/recoverpass", requestinfo)
   }
 
   changePass(passinfo:any){
-    return this._http.post("https://tablero-a-api.herokuapp.com/admins/changepass", passinfo)
+    return this._http.post(this.baseURL + "/admins/changepass", passinfo)
   }
 
 }
