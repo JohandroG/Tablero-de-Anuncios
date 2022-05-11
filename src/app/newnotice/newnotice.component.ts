@@ -113,7 +113,6 @@ msj:any = {};
       const formNoticeIndfo = new FormData()
       this.archivos.forEach((archivo:any) => {
         formNoticeIndfo.append('noticeImage',archivo)
-        
       });
 
       formNoticeIndfo.append('title',this.newNotice.title);

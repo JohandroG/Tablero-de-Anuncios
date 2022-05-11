@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Title, } from '@angular/platform-browser';
-import { Meta } from '@angular/platform-browser';
+import { SwPush } from '@angular/service-worker';
+import {PushTokensService} from "./services/push-tokens.service"
+
 
 @Component({
   selector: 'app-root',
@@ -10,31 +11,61 @@ import { Meta } from '@angular/platform-browser';
 
 
 export class AppComponent {
-  title = 'public';
 
-  public constructor(private titleService: Title,
-    private meta: Meta) { }
+  baseURL = "http://localhost:8000"
+  // baseURL = "https://johandrog.github.io/Tablero-de-Anuncios"
 
-  // ngOnInit(): void {
-  //   this.setTitle("Prueba")
-  //   this.setMetas()
-  // }
+  public readonly VAPID_PUBLIC_KEY = "BOVjl3y_07wpUquE0I4B4lTv6VyjCps7u881hpzybLu3XUSLu_HY-RfebVGMGrWR-Z0DP5A8NRzU0qofgbt_thU"
 
-  // public setTitle(newTitle: string) {
-  //   this.titleService.setTitle(newTitle);
-  // }
+  public constructor(
+    private swPush: SwPush,
+    private pushService : PushTokensService
+    ) {
+      this.subscribeToNotifications();
+      this.managepushClicks();
+    }
+
+  ngOnInit(): void {}
+
+  subscribeToNotifications():void{
+    this.swPush.requestSubscription({
+      serverPublicKey: this.VAPID_PUBLIC_KEY
+    })
+    .then(sub=>{
+      const token = JSON.parse(JSON.stringify(sub));
+
+      let newToken = {
+        token: token
+      }
+      
+      //todo: Conectar con el API
+      this.pushService.saveToken(newToken)
+      .subscribe((res:any)=>{
+        console.log(res);
+      },
+      (err:any)=>{
+        console.log(err.error.done);
+      })
+    })
+    .catch(err=>{
+      console.log("UPS",err);
+    })
+  }
 
 
-   // <meta name="apple-mobile-web-app-title" content="Anuncios">
-   // <meta name="apple-mobile-web-app-capable" content="yes">
-   // <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  managepushClicks():void{
+    this.swPush.notificationClicks.subscribe(
+      ({action, notification}) => {
+          // console.log(action);
+          // console.log(notification);
 
+          if(action === "redirecttonotice"){
+            window.open(`${this.baseURL}/info/anuncio/${notification.data.data1}`);
+          }
 
-  // public setMetas(){
-  //   this.meta.addTag({ name: 'apple-mobile-web-app-title', content: 'Anuncios' })
-  //   this.meta.addTag({ name: 'apple-mobile-web-app-capable', content: 'yes' })
-  //   this.meta.addTag({ name: 'apple-mobile-web-app-status-bar-style', content: 'black' })
-  // }
+      });
+  }
+
 
 
 

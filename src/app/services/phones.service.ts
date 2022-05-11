@@ -8,8 +8,8 @@ export class PhonesService {
 
   constructor(private _http: HttpClient) { }
   
-  baseURL:string = "https://tablero-a-api.herokuapp.com"
-  // baseURL:string = "http://localhost:8080" 
+  // baseURL:string = "https://tablero-a-api.herokuapp.com"
+  baseURL:string = "http://localhost:8080" 
 
   getUnusedNum(){
     return this._http.get(this.baseURL + "/phones/get/num");
