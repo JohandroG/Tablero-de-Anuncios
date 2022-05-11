@@ -6,8 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class NoticesService {
 
-  // baseURL:string = "https://tablero-a-api.herokuapp.com"
-  baseURL:string = "http://localhost:8080" 
+  baseURL:string = "https://tablero-a-api.herokuapp.com"
+  // baseURL:string = "http://localhost:8080" 
 
   constructor(private _http: HttpClient) { }
 

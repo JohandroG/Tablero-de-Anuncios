@@ -62,12 +62,12 @@ loader:boolean = true
 
       result.sort((a:any,b:any)=>{
         if(a.importance !== true){
-          return -1;
+          return 1;
         }
         else{
           return 0;
         }
-      })
+      }).reverse()
       
       this.notices = result;
     })

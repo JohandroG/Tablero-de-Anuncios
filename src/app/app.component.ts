@@ -12,8 +12,8 @@ import {PushTokensService} from "./services/push-tokens.service"
 
 export class AppComponent {
 
-  baseURL = "http://localhost:8000"
-  // baseURL = "https://johandrog.github.io/Tablero-de-Anuncios"
+  // baseURL = "http://localhost:8000"
+  baseURL = "https://johandrog.github.io/Tablero-de-Anuncios"
 
   public readonly VAPID_PUBLIC_KEY = "BOVjl3y_07wpUquE0I4B4lTv6VyjCps7u881hpzybLu3XUSLu_HY-RfebVGMGrWR-Z0DP5A8NRzU0qofgbt_thU"
 
@@ -21,8 +21,8 @@ export class AppComponent {
     private swPush: SwPush,
     private pushService : PushTokensService
     ) {
-      this.subscribeToNotifications();
-      this.managepushClicks();
+      // this.subscribeToNotifications();
+      // this.managepushClicks();
     }
 
   ngOnInit(): void {}
