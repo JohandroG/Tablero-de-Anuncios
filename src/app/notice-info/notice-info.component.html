@@ -1,8 +1,8 @@
 <main>
     <mat-card>
         <div class="fullNotice">
-            <div class="image" *ngIf="notice.picture">
-                <img class="images" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen de esta publicacion"/>
+            <div class="image" *ngIf="notice.picture" >
+                <img class="images" (click)="imgfull()" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen de esta publicacion"/>
             </div>
             <div class="information">
                 <div class="info">
@@ -10,11 +10,17 @@
                         <fa-icon class="importance" [icon]="['fas','exclamation-circle']" style="font-size: 35px; margin-right: 10px;"></fa-icon>
                         Importante
                     </p>
-                    <h1>{{notice.title}}</h1>
                     <p class="date">Publicado el {{notice.created_at | dateformat}}</p>
+                    <h1>{{notice.title}}</h1>
                     <h3 [innerHTML]="notice.description"></h3>
                 </div>
                 <div class="extra">
+                    <a href="/Tablero-de-Anuncios/" *ngIf="notice.link" >
+                        <button mat-fab color="primary" style="background-color: rgb(0,26,56);">
+                                <fa-icon [icon]="['fas','newspaper']" style="font-size: 22px;"></fa-icon>
+                        </button>
+                    </a>
+                
                     <a href="{{notice.link}}" *ngIf="notice.link" >
                         <button mat-fab color="primary">
                                 <fa-icon [icon]="['fas','link']" style="font-size: 22px;"></fa-icon>
@@ -26,8 +32,23 @@
                             <fa-icon [icon]="['fas','edit']" style="font-size: 22px;"></fa-icon>
                         </button>
                     </a>
+
+                    <button (click)="imgfull()" mat-fab color="warn" class="zoomimg" *ngIf="notice.picture">
+                        <fa-icon [icon]="['fas','image']" style="font-size: 22px;"></fa-icon>
+                        <fa-icon [icon]="['fas','search']" style="font-size: 22px;"></fa-icon>
+                    </button>
                 </div>
             </div>
         </div>
     </mat-card>
+
+    <div class="zoomedimg disapear" #imagediv>
+        <img #image class="imagezoomed disapear" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen de esta publicacion"/>
+    </div>
+
+    <div class="background disapear" #background (click)="imgdisapear()">
+        <button mat-fab color="warn" class="backbut" *ngIf="notice.picture">
+            <fa-icon [icon]="['fas','window-close']" style="font-size: 22px;"></fa-icon>
+        </button>
+    </div>
 </main>

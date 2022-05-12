@@ -19,7 +19,10 @@ export class NoticeInfoComponent implements OnInit {
 
   admintype:any = '';
 
-
+//?--INPUTVALIDATOR--------------------------------------------------------------------------------------
+@ViewChild('image') image: ElementRef<any> | undefined;
+@ViewChild('imagediv') imagediv: ElementRef<any> | undefined;
+@ViewChild('background') background: ElementRef<any> | undefined;
 
   constructor(private _HttpNoticesService: NoticesService,
     private _router:Router,
@@ -58,5 +61,18 @@ export class NoticeInfoComponent implements OnInit {
     this.username = sessionUsername;
     this.admintype = sessionAdminType;
   }
+
+  imgfull():void{
+    this.renderer2.removeClass(this.image?.nativeElement,'disapear')
+    this.renderer2.removeClass(this.imagediv?.nativeElement,'disapear')
+    this.renderer2.removeClass(this.background?.nativeElement,'disapear')
+  }
+
+  imgdisapear():void{
+    this.renderer2.addClass(this.image?.nativeElement,'disapear')
+    this.renderer2.addClass(this.imagediv?.nativeElement,'disapear')
+    this.renderer2.addClass(this.background?.nativeElement,'disapear')
+  }
+
 
 }
