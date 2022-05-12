@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1652240705125,
+  "timestamp": 1652318722347,
   "index": "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://JohandroG.github.io/Tablero-de-Anuncios/favicon.ico",
         "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
-        "https://JohandroG.github.io/Tablero-de-Anuncios/main.5c6dc7b491bed7a4.js",
+        "https://JohandroG.github.io/Tablero-de-Anuncios/main.6eb9b9f853f83f7d.js",
         "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest",
         "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.ac2e62bdffa05392.js",
         "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js",
@@ -71,8 +71,8 @@
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-72x72.png": "fd23fe79da89470d6c2471f621ad4f4440e7e5d8",
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-96x96.png": "128013d7dacb824bfa166df9bfa59d7694cde17a",
     "https://JohandroG.github.io/Tablero-de-Anuncios/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "b87000bc14d5190d074c05021e2f11ccf2a62b3d",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/main.5c6dc7b491bed7a4.js": "de1c1cc3eff59ec256dce039b210cbeff27a88a1",
+    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "4a3d7e5f6c63f4651629a7ba0d53e0392e66d681",
+    "https://JohandroG.github.io/Tablero-de-Anuncios/main.6eb9b9f853f83f7d.js": "d3867f123dd36f8696e18559d6d8d82623a6a610",
     "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest": "5aad0db861bffba28fd6633b6dfb1ebe684a1afc",
     "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.ac2e62bdffa05392.js": "fc05197e92b82f21adebd5b120e651fb35e52f07",
     "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js": "8b40ba8975daa186e146fa43a17058706f985c55",
