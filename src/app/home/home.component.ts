@@ -1,10 +1,10 @@
 import { DatePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { of } from 'rxjs';
 import {NoticesService} from '../services/notices.service';
-
+import { AppComponent } from "../app.component";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,13 +24,8 @@ pageSizeOptions = [5,10,15,20,30,50]
 filter_value = "";
 
 //*USER-INFO
+userinfo:any = this._mainComp.userinfo
 
-_id:any = "";
-firstname:any = "";
-lastname:any = "";
-username:any = "";
-email:any = "";
-admintype:any = "";
 
 loader:boolean = true
 //!--VARIABLES------------------------------------------------------------------------------------------
@@ -38,12 +33,12 @@ loader:boolean = true
 
   constructor(private _HttpNoticesService: NoticesService,
     private _router:Router,
-    private _route:ActivatedRoute
+    private _route:ActivatedRoute,
+    private _mainComp:AppComponent
     ) { }
 
   ngOnInit(): void {
     this.getallNotices();
-    this.getFromSession();
   }
 
   handlePage(e:PageEvent){
@@ -60,43 +55,28 @@ loader:boolean = true
     this._HttpNoticesService.requestallNotices()
     .subscribe((result:any)=>{
 
-      result.sort((a:any,b:any)=>{
-        if(a.importance !== true){
-          return 1;
+      result.reverse().sort((a:any,b:any)=>{
+        if(a.importance === b.importance){
+          return 0;
+        }
+        if(a.importance === true){
+          return -1;
         }
         else{
           return 0;
         }
-      }).reverse()
+      })
       
       this.notices = result;
-    })
-    
-    
-    
-  }
-
-  getFromSession():void{
-    const sessionID = sessionStorage.getItem('userID');
-    const sessionFirstname = sessionStorage.getItem('userFirstname');
-    const sessionLastname = sessionStorage.getItem('userLastname');
-    const sessionUsername = sessionStorage.getItem('userUsername');
-    const sessionEmail = sessionStorage.getItem('userEmail');
-    const sessionAdminType = sessionStorage.getItem('userAdminType');
-    this._id = sessionID;
-    this.firstname = sessionFirstname;
-    this.lastname = sessionLastname;
-    this.email = sessionUsername;
-    this.username = sessionUsername;
-    this.email = sessionEmail;
-    this.admintype = sessionAdminType;
-
-    setTimeout(()=>{
+    },
+    (error=>{
+      console.log(error);
       this.loader = false;
-    },1000 * 10)
+    }))
+    
+    
+    
   }
-
-
 
 
 

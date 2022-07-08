@@ -16,8 +16,8 @@ export class NavigationBarComponent implements OnInit {
 
 admintype:any = "";
 
-navigateURL:string = "/Tablero-de-Anuncios"
-// navigateURL:string = ""
+// navigateURL:string = "/Tablero-de-Anuncios"
+navigateURL:string = ""
 
 //!--VARIABLES------------------------------------------------------------------------------------------
 
@@ -30,12 +30,13 @@ constructor(private _router:Router,
   }
 
   verifysession():void{
-    const sessionadmintype = sessionStorage.getItem('userAdminType');
-    this.admintype = sessionadmintype;
+    const sessionadmintype = JSON.parse(localStorage.getItem('userinfo') || "{}");
+    this.admintype = sessionadmintype.admintype;
   }
 
   logout():void{
-    sessionStorage.clear();
+    // sessionStorage.clear();
+    localStorage.removeItem('userinfo')
     this.verifysession();
     this._router.navigate( ['/'] )
     location.reload()

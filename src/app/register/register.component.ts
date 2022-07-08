@@ -89,12 +89,7 @@ matcher = new MyErrorStateMatcher();
       .subscribe(
         (result:any)=>{
           if(result._id){
-            sessionStorage.setItem('userID', result._id); //! Session In
-            sessionStorage.setItem('userFirstname', result.firstname); //! Session In
-            sessionStorage.setItem('userLastname', result.lastname); //! Session In
-            sessionStorage.setItem('userUsername', result.username); //! Session In
-            sessionStorage.setItem('userEmail', result.email); //! Session In
-            sessionStorage.setItem('userAdminType', result.admintype); //! Session In
+            localStorage.setItem('userinfo',JSON.stringify(result));
             this._router.navigate( ['/'] )
             .finally(()=>{
               location.reload()

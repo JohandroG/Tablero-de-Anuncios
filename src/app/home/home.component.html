@@ -5,8 +5,8 @@
         </div>
         <div>
             <h1>Tablero de Anuncios</h1>
-            <div class="singnedas" *ngIf="firstname">
-                <h3 id="log">En sesión: {{firstname}} {{lastname}}</h3>
+            <div class="singnedas" *ngIf="userinfo.firstname">
+                <h3 id="log">En sesión: {{userinfo.firstname}} {{userinfo.lastname}}</h3>
             </div>
         </div>
     </div>
@@ -46,8 +46,8 @@
         </div>
         <div>
             <h1>Tablero de Anuncios</h1>
-            <div class="singnedas" *ngIf="firstname">
-                <h3 id="log">En sesión: {{firstname}} {{lastname}}</h3>
+            <div class="singnedas" *ngIf="userinfo.firstname">
+                <h3 id="log">En sesión: {{userinfo.firstname}} {{userinfo.lastname}}</h3>
             </div>
         </div>
     </div>
@@ -119,7 +119,7 @@
                         </div>
                     </a>
     
-                    <a class="stat"  href="editar/anuncio/{{notice._id}}" *ngIf="notice.creator === username || admintype == 'Total' ">
+                    <a class="stat"  href="editar/anuncio/{{notice._id}}" *ngIf="notice.creator === userinfo.username || userinfo.admintype == 'Total' ">
                         <div class="value">
                             <a href="editar/anuncio/{{notice._id}}">
                                 <fa-icon [icon]="['fas','edit']"></fa-icon>
@@ -164,7 +164,7 @@
                         </div>
                     </a>
     
-                    <a class="stat"  href="editar/anuncio/{{notice._id}}" *ngIf="notice.creator === username || admintype == 'Total' ">
+                    <a class="stat"  href="editar/anuncio/{{notice._id}}" *ngIf="notice.creator === userinfo.username || userinfo.admintype == 'Total' ">
                         <div class="value">
                             <a href="editar/anuncio/{{notice._id}}">
                                 <fa-icon [icon]="['fas','edit']"></fa-icon>

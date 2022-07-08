@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppComponent } from "../app.component";
 
 @Component({
   selector: 'app-calls',
@@ -8,46 +9,26 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CallsComponent implements OnInit {
 
-  _id:any = "";
-  firstname:any = "";
-  lastname:any = "";
-  username:any = "";
-  email:any = "";
-  admintype:any = "";
+//*USER-INFO
+userinfo:any = this._mainComp.userinfo
 
 
   constructor(
     private _router:Router,
     private _route:ActivatedRoute,
+    private _mainComp:AppComponent
     ) { }
 
   ngOnInit(): void {
     this.protectURL();
-    this.getFromSession();
   }
 
   protectURL():void{
-    const admintype = sessionStorage.getItem('userAdminType');
-    if(!admintype){
+    if(!this.userinfo.admintype){
       this._router.navigate( ['/'] )
     }
   }
 
-  getFromSession():void{
-    const sessionID = sessionStorage.getItem('userID');
-    const sessionFirstname = sessionStorage.getItem('userFirstname');
-    const sessionLastname = sessionStorage.getItem('userLastname');
-    const sessionUsername = sessionStorage.getItem('userUsername');
-    const sessionEmail = sessionStorage.getItem('userEmail');
-    const sessionAdminType = sessionStorage.getItem('userAdminType');
-    this._id = sessionID;
-    this.firstname = sessionFirstname;
-    this.lastname = sessionLastname;
-    this.email = sessionUsername;
-    this.username = sessionUsername;
-    this.email = sessionEmail;
-    this.admintype = sessionAdminType;
-  }
 
 
 }

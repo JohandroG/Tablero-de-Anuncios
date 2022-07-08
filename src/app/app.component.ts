@@ -15,6 +15,9 @@ export class AppComponent {
   // baseURL = "http://localhost:8000"
   baseURL = "https://johandrog.github.io/Tablero-de-Anuncios"
 
+  
+  userinfo:any = {}
+
   public readonly VAPID_PUBLIC_KEY = "BOVjl3y_07wpUquE0I4B4lTv6VyjCps7u881hpzybLu3XUSLu_HY-RfebVGMGrWR-Z0DP5A8NRzU0qofgbt_thU"
 
   public constructor(
@@ -25,7 +28,14 @@ export class AppComponent {
       // this.managepushClicks();
     }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getFromSession()
+  }
+
+  getFromSession():void{
+    this.userinfo = JSON.parse(localStorage.getItem('userinfo') || "{}")
+    console.log(this.userinfo);
+  }
 
   subscribeToNotifications():void{
     this.swPush.requestSubscription({
