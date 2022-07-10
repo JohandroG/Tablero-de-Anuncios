@@ -3,6 +3,8 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {NoticesService} from '../services/notices.service';
+import { AppComponent } from "../app.component";
+
 
 @Component({
   selector: 'app-notice-info',
@@ -15,9 +17,8 @@ export class NoticeInfoComponent implements OnInit {
 
   notice:any = {};
 
-  username:any = '';
-
-  admintype:any = '';
+//*USER-INFO
+userinfo:any = this._mainComp.userinfo
 
 //?--INPUTVALIDATOR--------------------------------------------------------------------------------------
 @ViewChild('image') image: ElementRef<any> | undefined;
@@ -27,12 +28,12 @@ export class NoticeInfoComponent implements OnInit {
   constructor(private _HttpNoticesService: NoticesService,
     private _router:Router,
     private _route:ActivatedRoute,
-    private renderer2: Renderer2
+    private renderer2: Renderer2,
+    private _mainComp:AppComponent
     ) { }
 
   ngOnInit(): void {
     this.loadNoticeInfo();
-    this.getFromSession();
   }
 
 
@@ -49,17 +50,6 @@ export class NoticeInfoComponent implements OnInit {
         this._router.navigate( ['/'] )
       } //------------------------------------------------------------To not charge empty
     })
-  }
-
-  getFromSession():void{
-    const sessionID = sessionStorage.getItem('userID');
-    const sessionFirstname = sessionStorage.getItem('userFirstname');
-    const sessionLastname = sessionStorage.getItem('userLastname');
-    const sessionUsername = sessionStorage.getItem('userUsername');
-    const sessionEmail = sessionStorage.getItem('userEmail');
-    const sessionAdminType = sessionStorage.getItem('userAdminType');
-    this.username = sessionUsername;
-    this.admintype = sessionAdminType;
   }
 
   imgfull():void{

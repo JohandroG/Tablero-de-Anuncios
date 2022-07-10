@@ -121,14 +121,13 @@ transition: var(--transition-speed);
 
 /* Small screens */
 @media only screen and (max-width: 480px) {
+
     .navbar {
     bottom: 0;
     width: 100vw;
     height: 4.5rem;
     overflow: scroll;
     }
-
-    
 
     .navbar:hover {
         width: 100vw;
@@ -152,6 +151,29 @@ transition: var(--transition-speed);
     width: 5rem;
     }
 
+    /* .navbar {
+        top: 0;
+        width: 5rem;
+        height: 100vh;
+    }
+
+    .navbar:hover {
+        width: 16rem;
+    }
+
+    .navbar:hover .link-text {
+        display: inline;
+    }
+
+    .navbar:hover .logo svg
+    {
+        margin-left: 11rem;
+    }
+
+    .navbar:hover .logo-text
+    {
+        left: 0px;
+    } */
 
 }
 

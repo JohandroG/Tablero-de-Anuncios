@@ -4,6 +4,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { flatten } from '@angular/compiler';
+import { AppComponent } from "../app.component";
 
 @Component({
   selector: 'app-viewnumsconfig',
@@ -20,12 +21,16 @@ export class ViewnumsconfigComponent implements OnInit {
 
   msj:any = {}
 
+  //*USER-INFO
+  userinfo:any = this._mainComp.userinfo
+
 
 
   constructor(private _phoneService:PhonesService,
     private _router:Router,
     private _route:ActivatedRoute,
-    private renderer2: Renderer2
+    private renderer2: Renderer2,
+    private _mainComp:AppComponent
     ) { }
 
     ngOnInit(): void {
@@ -33,8 +38,8 @@ export class ViewnumsconfigComponent implements OnInit {
     }
 
     protectURL():void{
-      const admintype = sessionStorage.getItem('userAdminType');
-      if(!admintype){
+      const admintype = this.userinfo.admintype;
+      if(!admintype || admintype === "Register"){
         this._router.navigate( ['/'] )
       }
     }

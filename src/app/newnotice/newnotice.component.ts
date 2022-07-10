@@ -3,6 +3,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {NoticesService} from '../services/notices.service';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { AppComponent } from "../app.component";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -48,6 +49,8 @@ archivos:any = [];
 
 msj:any = {};
 
+//*USER-INFO
+userinfo:any = this._mainComp.userinfo
 
 //!--VARIABLES------------------------------------------------------------------------------------------
 
@@ -68,7 +71,8 @@ msj:any = {};
   constructor(private _HttpNoticesService: NoticesService,
     private _router:Router,
     private _route:ActivatedRoute,
-    private renderer2: Renderer2
+    private renderer2: Renderer2,
+    private _mainComp:AppComponent
     ) { }
 
   ngOnInit(): void {
@@ -76,7 +80,7 @@ msj:any = {};
   }
 
   protectURL():void{
-    const admintype = sessionStorage.getItem('userAdminType');
+    const admintype = this.userinfo.admintype;
     if(!admintype || admintype === "Register"){
       this._router.navigate( ['/'] )
     }

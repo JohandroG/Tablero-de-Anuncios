@@ -3,6 +3,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { AppComponent } from "../app.component";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -42,6 +43,9 @@ normalmsj:any = {}
 
 registermsj:any = {}
 
+//*USER-INFO
+userinfo:any = this._mainComp.userinfo
+
 //!--VARIABLES------------------------------------------------------------------------------------------
 
 lastcodeTFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
@@ -58,6 +62,7 @@ matcher = new MyErrorStateMatcher();
   constructor(private _HttpNoticesService: CodesService,
     private _router:Router,
     private _route:ActivatedRoute,
+    private _mainComp:AppComponent
     ) { }
 
 
@@ -67,7 +72,7 @@ matcher = new MyErrorStateMatcher();
   }
 
   protectURL():void{
-    const admintype = sessionStorage.getItem('userAdminType');
+    const admintype = this.userinfo.admintype;
     if(!admintype || admintype === "Register"|| admintype === "Normal"){
       this._router.navigate( ['/'] )
     }

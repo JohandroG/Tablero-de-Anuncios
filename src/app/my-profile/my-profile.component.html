@@ -6,27 +6,27 @@
     <div class="info">
         <div class="firstname space">
             <h2>Nombre:</h2>
-            <h3>{{firstname}}</h3>
+            <h3>{{userinfo.firstname}}</h3>
         </div>
         
         <div class="lastname space">
             <h2>Apellido:</h2>
-            <h3>{{lastname}}</h3>
+            <h3>{{userinfo.lastname}}</h3>
         </div>
         
         <div class="username space">
             <h2>Usuario:</h2>
-            <h3>{{username}}</h3>
+            <h3>{{userinfo.username}}</h3>
         </div>
         
         <div class="email space">
             <h2>Email:</h2>
-            <h3>{{email}}</h3>
+            <h3>{{userinfo.email}}</h3>
         </div>
     </div>
 
     <div class="access space">
-        <h4 *ngIf="admintype == 'Total'">
+        <h4 *ngIf="userinfo.admintype == 'Total'">
             Tienes <strong>ACCESO TOTAL</strong> a todas las funciones de la plataforma, puedes:
         
             <ul>
@@ -39,7 +39,7 @@
             </ul>
         </h4>
         
-        <h4 *ngIf="admintype == 'Normal'">
+        <h4 *ngIf="userinfo.admintype == 'Normal'">
             Tienes <strong>ACCESO NORMAL</strong> a algunas funciones de la plataforma, puedes:
             <ul>
                 <li>Ver y leer anuncios publicados</li>
@@ -50,7 +50,7 @@
             </ul>
         </h4>
         
-        <h4 *ngIf="admintype == 'Register'">
+        <h4 *ngIf="userinfo.admintype == 'Register'">
             Tienes <strong>ACCESO A LOS REGISTROS</strong> de la plataforma, puedes:
             <ul>
                 <li>Ver y leer anuncios publicados</li>

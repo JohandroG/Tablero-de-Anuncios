@@ -4,7 +4,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { flatten } from '@angular/compiler';
-
+import { AppComponent } from "../app.component";
 
 @Component({
   selector: 'app-mynum',
@@ -19,12 +19,8 @@ export class MynumComponent implements OnInit {
 //!--------------------VARIABLES----------------------------------------------------------------------------
 numberinfo:any = {};
 
-id:any = "";
-firstname:any = "";
-lastname:any = "";
-username:any = "";
-email:any = "";
-admintype:any = "";
+//*USER-INFO
+userinfo:any = this._mainComp.userinfo
 
 time:number = 0;
 minutes:number = 20; // Reset when storage is more than 20 minutes
@@ -66,7 +62,8 @@ panelOpenState = false;
     constructor(private _phoneService:PhonesService,
       private _router:Router,
       private _route:ActivatedRoute,
-      private renderer2: Renderer2
+      private renderer2: Renderer2,
+      private _mainComp:AppComponent
       ) { }
 
   ngOnInit(): void {
@@ -76,8 +73,7 @@ panelOpenState = false;
   }
 
   protectURL():void{
-    const admintype = sessionStorage.getItem('userAdminType');
-    if(!admintype){
+    if(!this.userinfo.admintype){
       this._router.navigate( ['/'] )
     }
   }
@@ -99,14 +95,6 @@ panelOpenState = false;
 
 
   getFromSession():void{
-    //!USER----------------------------------------------------------------------------------
-    this.id = sessionStorage.getItem('userID');
-    this.firstname = sessionStorage.getItem('userFirstname');
-    this.lastname = sessionStorage.getItem('userLastname');
-    this.username = sessionStorage.getItem('userUsername');
-    this.email = sessionStorage.getItem('userEmail');
-    this.admintype = sessionStorage.getItem('userAdminType');
-
     //!PHONE----------------------------------------------------------------------------------
     this.numberinfo.number = sessionStorage.getItem('Phonenumber');
     this.numberinfo.publisher = sessionStorage.getItem('Phonepublisher');
@@ -119,7 +107,6 @@ panelOpenState = false;
     setTimeout(()=>{
       this.loader = false;
     },1000)
-
   }
 
   getNum():void{
@@ -160,9 +147,9 @@ panelOpenState = false;
   updateNumber(event:any):void{
 
     if(!this.info.errors && !this.notes.errors && !this.type.errors){
-      this.publisher.setValue(`${this.firstname} ${this.lastname}`)
+      this.publisher.setValue(`${this.userinfo.firstname} ${this.userinfo.lastname}`)
       this._id.setValue(this.numberinfo._id)
-      this.user.setValue(this.username)
+      this.user.setValue(this.userinfo.username)
 
       console.log(this.newNumberForm.value);
 

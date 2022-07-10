@@ -3,7 +3,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {NoticesService} from '../services/notices.service';
-
+import { AppComponent } from "../app.component";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -50,6 +50,9 @@ descriptionFormControl = new FormControl('', [Validators.required, Validators.mi
 
 matcher = new MyErrorStateMatcher();
 
+//*USER-INFO
+userinfo:any = this._mainComp.userinfo
+
 
 //?--INPUTVALIDATOR--------------------------------------------------------------------------------------
 @ViewChild('cardpreview') preview: ElementRef<any> | undefined;
@@ -64,7 +67,8 @@ matcher = new MyErrorStateMatcher();
   constructor(private _HttpNoticesService: NoticesService,
     private _router:Router,
     private _route:ActivatedRoute,
-    private renderer2: Renderer2
+    private renderer2: Renderer2,
+    private _mainComp:AppComponent
     ) { }
 
 
@@ -74,7 +78,7 @@ matcher = new MyErrorStateMatcher();
   }
 
   protectURL():void{
-    const admintype = sessionStorage.getItem('userAdminType');
+    const admintype = this.userinfo.admintype;
     if(!admintype || admintype === "Register"){
       this._router.navigate( ['/'] )
     }

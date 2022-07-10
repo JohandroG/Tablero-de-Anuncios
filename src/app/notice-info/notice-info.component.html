@@ -1,8 +1,9 @@
 <main>
     <mat-card>
         <div class="fullNotice">
-            <div class="image" *ngIf="notice.picture" >
-                <img class="images" (click)="imgfull()" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen de esta publicacion"/>
+            <div class="image">
+                <img class="images" (click)="imgfull()" *ngIf="notice.picture" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen de esta publicacion"/>
+                <img class="images" *ngIf="!notice.picture" src="https://images.assetsdelivery.com/compings_v2/provector/provector1501/provector150100121.jpg"/>
             </div>
             <div class="information">
                 <div class="info">
@@ -15,28 +16,38 @@
                     <h3 [innerHTML]="notice.description"></h3>
                 </div>
                 <div class="extra">
-                    <a href="/Tablero-de-Anuncios/" *ngIf="notice.link" >
-                        <button mat-fab color="primary" style="background-color: rgb(0,26,56);">
-                                <fa-icon [icon]="['fas','newspaper']" style="font-size: 22px;"></fa-icon>
-                        </button>
-                    </a>
+                    
+                    <div>
+                        <a href="/Tablero-de-Anuncios/">
+                            <button mat-fab color="primary" style="background-color: rgb(0,26,56);">
+                                    <fa-icon [icon]="['fas','undo']" style="font-size: 22px;"></fa-icon>
+                            </button>
+                        </a>
+                    </div>
                 
-                    <a href="{{notice.link}}" *ngIf="notice.link" >
-                        <button mat-fab color="primary">
-                                <fa-icon [icon]="['fas','link']" style="font-size: 22px;"></fa-icon>
-                        </button>
-                    </a>
+                    <div *ngIf="notice.link">
+                        <a href="{{notice.link}}" >
+                            <button mat-fab color="primary">
+                                    <fa-icon [icon]="['fas','link']" style="font-size: 22px;"></fa-icon>
+                            </button>
+                        </a>
+                    </div>
                 
-                    <a class="stat"  href="editar/anuncio/{{notice._id}}"  *ngIf="notice.creator === username || admintype == 'Total'">
-                        <button mat-fab color="warn">
-                            <fa-icon [icon]="['fas','edit']" style="font-size: 22px;"></fa-icon>
-                        </button>
-                    </a>
+                    <div *ngIf="notice.creator === userinfo.username || userinfo.admintype == 'Total'">
+                        <a class="stat"  href="editar/anuncio/{{notice._id}}">
+                            <button mat-fab color="warn">
+                                <fa-icon [icon]="['fas','edit']" style="font-size: 22px;"></fa-icon>
+                            </button>
+                        </a>
+                    </div>
 
-                    <button (click)="imgfull()" mat-fab color="warn" class="zoomimg" *ngIf="notice.picture">
-                        <fa-icon [icon]="['fas','image']" style="font-size: 22px;"></fa-icon>
-                        <fa-icon [icon]="['fas','search']" style="font-size: 22px;"></fa-icon>
-                    </button>
+                    <div *ngIf="notice.picture">
+                        <button (click)="imgfull()" mat-fab color="warn" class="zoomimg" *ngIf="notice.picture">
+                            <fa-icon [icon]="['fas','image']" style="font-size: 22px;"></fa-icon>
+                            <fa-icon [icon]="['fas','search']" style="font-size: 22px;"></fa-icon>
+                        </button>
+                    </div>
+                    
                 </div>
             </div>
         </div>

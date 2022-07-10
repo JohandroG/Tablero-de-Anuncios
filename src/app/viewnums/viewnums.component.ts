@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {PhonesService} from '../services/phones.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { AppComponent } from "../app.component";
 
 @Component({
   selector: 'app-viewnums',
@@ -11,12 +12,8 @@ import { PageEvent } from '@angular/material/paginator';
 export class ViewnumsComponent implements OnInit {
 
 
-  _id:any = "";
-  firstname:any = "";
-  lastname:any = "";
-  username:any = "";
-  email:any = "";
-  admintype:any = "";
+//*USER-INFO
+userinfo:any = this._mainComp.userinfo
 
 //--------------------------------------------------------------------------
   numbers:any[] = [];
@@ -36,17 +33,17 @@ export class ViewnumsComponent implements OnInit {
 
   constructor(private _phoneService:PhonesService,
     private _router:Router,
-    private _route:ActivatedRoute
+    private _route:ActivatedRoute,
+    private _mainComp:AppComponent
     ) { }
 
   ngOnInit(): void {
     this.loadnums();
-    this.getFromSession();
     this.protectURL();
   }
 
   protectURL():void{
-    const admintype = sessionStorage.getItem('userAdminType');
+    const admintype = this.userinfo.admintype;
     if(!admintype || admintype === "Register"){
       this._router.navigate( ['/'] )
     }
@@ -76,24 +73,6 @@ export class ViewnumsComponent implements OnInit {
   handlePage(e:PageEvent){
     this.page_size = e.pageSize
     this.page_number = e.pageIndex + 1  
-  }
-
-  getFromSession():void{
-    const sessionID = sessionStorage.getItem('userID');
-    const sessionFirstname = sessionStorage.getItem('userFirstname');
-    const sessionLastname = sessionStorage.getItem('userLastname');
-    const sessionUsername = sessionStorage.getItem('userUsername');
-    const sessionEmail = sessionStorage.getItem('userEmail');
-    const sessionAdminType = sessionStorage.getItem('userAdminType');
-    this._id = sessionID;
-    this.firstname = sessionFirstname;
-    this.lastname = sessionLastname;
-    this.email = sessionUsername;
-    this.username = sessionUsername;
-    this.email = sessionEmail;
-    this.admintype = sessionAdminType;
-
-    
   }
 
   filternums(event:any):void{

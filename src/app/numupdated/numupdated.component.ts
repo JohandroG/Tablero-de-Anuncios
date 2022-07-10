@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
+import { AppComponent } from "../app.component";
 @Component({
   selector: 'app-numupdated',
   templateUrl: './numupdated.component.html',
@@ -10,10 +11,13 @@ export class NumupdatedComponent implements OnInit {
 
   message:any = "";
 
+  //*USER-INFO
+  userinfo:any = this._mainComp.userinfo
 
   constructor(
     private _router:Router,
     private _route:ActivatedRoute,
+    private _mainComp:AppComponent
     ) { }
 
   ngOnInit(): void {
@@ -22,8 +26,7 @@ export class NumupdatedComponent implements OnInit {
   }
 
   protectURL():void{
-    const admintype = sessionStorage.getItem('userAdminType');
-    if(!admintype){
+    if(!this.userinfo.admintype){
       this._router.navigate( ['/'] )
     }
   }

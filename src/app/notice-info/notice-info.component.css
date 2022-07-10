@@ -40,12 +40,11 @@ main{
 
 .extra{
     margin-right: 0;
-    margin-top: 25px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: rgb(191, 213, 255);
-    padding: 15px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -89,8 +88,8 @@ main{
     background-color: #10a05d;
 }
 
-.extra a {
-    margin-right: 30px;
+.extra div {
+    margin: 10px;
 }
 
 .zoomimg *{
@@ -151,6 +150,10 @@ main{
 
     .imagezoomed{
         width: 100%;
+    }
+
+    .images{
+        max-width: 85vw;
     }
 
     .zoomedimg{
@@ -229,7 +232,6 @@ main{
     }
 
     .extra a {
-        margin-right: 30px;
         transition: 300ms ease;
         -webkit-transition: 300ms ease;
         -moz-transition: 300ms ease;
