@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { SwPush } from '@angular/service-worker';
 import {PushTokensService} from "./services/push-tokens.service"
-
+import { NavigationEnd, Router, RouterEvent } from '@angular/router';
+import {filter} from 'rxjs/operators'
+declare var gtag:any;
 
 @Component({
   selector: 'app-root',
@@ -22,10 +24,24 @@ export class AppComponent {
 
   public constructor(
     private swPush: SwPush,
-    private pushService : PushTokensService
+    private pushService : PushTokensService,
+    private router: Router
     ) {
-      // this.subscribeToNotifications();
-      // this.managepushClicks();
+      this.subscribeToNotifications();
+      this.managepushClicks();
+
+      //?--------------This is for Google analitycs events on routing-------------------------
+      const navEndEvents$ = this.router.events
+      .pipe(
+        filter((event:any) => event instanceof NavigationEnd)
+      );
+      
+      navEndEvents$.subscribe((ev: NavigationEnd) => {
+        gtag('config', 'G-VDDLMMPKP2', {
+          'page_path': ev.urlAfterRedirects
+        });
+      });
+
     }
 
   ngOnInit(): void {
@@ -34,7 +50,6 @@ export class AppComponent {
 
   getFromSession():void{
     this.userinfo = JSON.parse(localStorage.getItem('userinfo') || "{}")
-    console.log(this.userinfo);
   }
 
   subscribeToNotifications():void{
@@ -72,9 +87,10 @@ export class AppComponent {
           if(action === "redirecttonotice"){
             window.open(`${this.baseURL}/info/anuncio/${notification.data.data1}`);
           }
-
       });
   }
+
+
 
 
 
