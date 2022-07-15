@@ -55,13 +55,13 @@ userinfo:any = this._mainComp.userinfo
   imgfull():void{
     this.renderer2.removeClass(this.image?.nativeElement,'disapear')
     this.renderer2.removeClass(this.imagediv?.nativeElement,'disapear')
-    this.renderer2.removeClass(this.background?.nativeElement,'disapear')
+    this.renderer2.removeClass(this.background?.nativeElement,'disapear2')
   }
 
   imgdisapear():void{
     this.renderer2.addClass(this.image?.nativeElement,'disapear')
     this.renderer2.addClass(this.imagediv?.nativeElement,'disapear')
-    this.renderer2.addClass(this.background?.nativeElement,'disapear')
+    this.renderer2.addClass(this.background?.nativeElement,'disapear2')
   }
 
 

@@ -6,9 +6,19 @@ mat-card{
     justify-content: flex-start;
 }
 
+.forgot a{
+    text-decoration: none;
+    color: #3F51B5;
+    text-align: center;
+}
+
+.forgot{
+    margin-bottom: 20px;
+}
+
 mat-card h2{
     font-size: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .space button{

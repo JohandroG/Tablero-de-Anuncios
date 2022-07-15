@@ -320,16 +320,20 @@ input:focus + label {
     -moz-transform: scale(1);
     -ms-transform: scale(1);
     -o-transform: scale(1);
-    top: 2vh;
+    top: 15vh;
     z-index: 20;
 }
 
 .bg{
     visibility: visible;
     position: fixed;
+    top: 0;
     width: 100vw;
-    height: 250vh;
+    height: 100vh;
     background: #00346756;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    
 }
 
 
@@ -354,6 +358,9 @@ input:focus + label {
     color: green;
 }
 
+mat-card button{
+    background-color: rgb(155,15,13);
+}
 
 @media only screen and (min-width: 481px) and (max-width: 1023px){ 
 

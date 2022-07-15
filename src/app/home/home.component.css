@@ -143,36 +143,13 @@ body{
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
-.welcome h1{
-    font-size: 30px;
-    text-align: center;
-    font-weight: 500;
-    margin-bottom: 0px;
-}
+
 
 .singnedas h3{
     margin: 0;
 }
 
-#log{
-    font-size: 15px;
-    border-radius: 10px;
-    background-color: rgba(128, 147, 252, 0.267);
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
-}
 
-.welcome{
-    background-color: #001A38;
-    color: white;
-    height: 5.1rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
 
 .singnedas h3{
     text-align: center;
@@ -180,18 +157,7 @@ body{
     font-weight: 400;
 }
 
-.logo{
-    font-size: 45px;
-    margin-right: 10px;
-}
 
-.search{
-    text-align: center;
-    height: 60px;
-    width: 100%;
-    margin-top: 10px;
-    /* !See this */
-}
 
 .no-notice{
     margin: 10px;
@@ -252,13 +218,6 @@ body{
         margin: 20px 0px;
     }
 
-    .welcome{
-        height: 4.3rem;
-    }
-
-    .search{
-        margin-top: 18px;
-    }
     
 }
 
@@ -281,14 +240,6 @@ body{
         margin: 25px 15px;
     }
 
-    .search{
-        text-align: left;
-        margin-left: 25px;
-    }
-    
-    .welcome{
-        height: 4.3rem;
-    }
 
     .notice:hover {
         box-shadow: 5px 5px 15px rgba(0,0,0,0.6);

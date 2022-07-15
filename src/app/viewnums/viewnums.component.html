@@ -52,7 +52,7 @@
         </mat-paginator>
     </div>
     
-    <div class="num" *ngFor="let number of numbers | searchN: filter_value | pagination: page_size:page_number">
+    <div class="num" *ngFor="let number of numbers | searchN: filter_value : searchfor | pagination: page_size:page_number">
         <mat-accordion>
             <mat-expansion-panel (opened)="panelOpenState = true"
                                 (closed)="panelOpenState = false">

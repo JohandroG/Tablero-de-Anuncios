@@ -140,9 +140,6 @@ userinfo:any = this._mainComp.userinfo
       this.msj.problem = "⚠️ Ha ocurrido un problema"
     }
     
-
-
-
   }
 
   mobilepreview():void{

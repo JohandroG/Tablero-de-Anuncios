@@ -1,16 +1,89 @@
 .example-form-field {
-    width: 90vw;
+    width: 235px;
+    color: white;
+    margin: 50px 0px;
+    margin-left: 10px;
+}
+
+.container{
+    font-size: 12px;
+}
+
+.example-form-field input::placeholder{
+    color: white;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: rgb(255, 255, 255);
+}
+
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: rgb(255, 255, 255);
+}
+
+
+::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
+    color: rgb(255, 255, 255);
+    opacity: 0.8;
+}
+
+
+::ng-deep .mat-input-element {
+    caret-color: rgb(255, 255, 255);
+}
+
+
+::ng-deep .mat-form-field-invalid .mat-input-element, .mat-warn .mat-input-element {
+    caret-color: rgb(255, 255, 255);
+}
+
+
+::ng-deep .mat-form-field-label {
+    color: rgba(255, 255, 255, 0.6);
+    color: rgb(255, 255, 255);
+}
+
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: rgb(255, 255, 255);
+}
+
+
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: rgb(255, 255, 255);
+}
+
+::ng-deep .mat-form-field-wrapper{
+    padding: 0;
+    margin: 0;
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px){ 
     .example-form-field {
-        width: 50vw;
+        width: 30vw;
     }
+
+    .container{
+        font-size: 10px;
+    }
+
+
 }
 
 @media only screen and (min-width: 1024px) {
     .example-form-field {
-        width: 40vw;
+        width: 35vw;
+        color: white;
     }
 
+    .container{
+        font-size: 12px;
+    }
 }

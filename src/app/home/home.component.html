@@ -1,17 +1,4 @@
 <div class="ifno" *ngIf="notices.length == 0">
-    <div class="welcome">
-        <div class="logo">
-            <fa-icon [icon]="['fas','newspaper']"></fa-icon>
-        </div>
-        <div>
-            <h1>Tablero de Anuncios</h1>
-            <div class="singnedas" *ngIf="userinfo.firstname">
-                <h3 id="log">En sesión: {{userinfo.firstname}} {{userinfo.lastname}}</h3>
-            </div>
-        </div>
-    </div>
-
-
 
     <div class="loadinfo">
         <mat-card class="loading" *ngIf="loader">
@@ -39,22 +26,6 @@
 
 
 <div class="ifyes" *ngIf="notices.length > 0">
-
-    <div class="welcome">
-        <div class="logo">
-            <fa-icon [icon]="['fas','newspaper']"></fa-icon>
-        </div>
-        <div>
-            <h1>Tablero de Anuncios</h1>
-            <div class="singnedas" *ngIf="userinfo.firstname">
-                <h3 id="log">En sesión: {{userinfo.firstname}} {{userinfo.lastname}}</h3>
-            </div>
-        </div>
-    </div>
-
-    <div class="search">
-        <app-search-notice *ngIf="page_number == 1" (search)="handleSearch($event)"></app-search-notice>
-    </div>
     
     <div class="paginator">
         <mat-paginator class="mp1" [length]="notices.length"
@@ -69,7 +40,7 @@
     
     
     <div class="notice-holder">
-        <div class="notice" *ngFor="let notice of notices | searchN: filter_value | pagination: page_size:page_number" >          
+        <div class="notice" *ngFor="let notice of notices | searchN: filter_value: searchfor | pagination: page_size:page_number" >          
                 <a class="notice-image" href="info/anuncio/{{notice._id}}">
                         <img class="image" *ngIf="notice.picture" src="https://tablero-a-api.herokuapp.com/notices/notice/image/{{notice.picture}}" alt="Imagen"/>
                         <img class="image" *ngIf="!notice.picture" src="https://images.assetsdelivery.com/compings_v2/provector/provector1501/provector150100121.jpg" alt="Imagen"/>

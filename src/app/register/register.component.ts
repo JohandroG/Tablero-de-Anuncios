@@ -3,6 +3,7 @@ import {UsersService} from '../services/users.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
+import { CompConnectionService } from '../services/comp-connection.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -19,6 +20,12 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class RegisterComponent implements OnInit {
 
 //!--VARIABLES------------------------------------------------------------------------------------------
+navInfo = {
+  title: "Registarse",
+  search : false,
+  profile: false,
+  utilities: false
+}
 
   newUser:any = {
     firstname : "",
@@ -60,10 +67,16 @@ matcher = new MyErrorStateMatcher();
   constructor(private _HttpService: UsersService,
     private _router:Router,
     private _route:ActivatedRoute,
+    private _compConnService: CompConnectionService
     ) { }
 
   ngOnInit(): void {
     this.protectURL();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
   protectURL():void{

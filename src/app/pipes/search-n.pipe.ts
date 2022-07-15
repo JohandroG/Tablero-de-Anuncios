@@ -5,10 +5,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class SearchNPipe implements PipeTransform {
 
-  transform(list: any[], text: string) : any[] {
+  transform(list: any[], text: string, searchfor: string) : any[] {
     if(!text) return list
 
-    return list.filter(notice => notice.title.toUpperCase().includes(text.toUpperCase()))
+    if(searchfor === "notices"){
+      return list.filter(item => item.title.toUpperCase().includes(text.toUpperCase()))
+    }
+
+    return list
+    
   }
 
 }

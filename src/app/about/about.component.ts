@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompConnectionService } from '../services/comp-connection.service';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+  navInfo = {
+    title: "Información de la App",
+    search : false,
+    profile: true,
+    utilities: false
+  }
 
-  constructor() { }
+
+  constructor(private _compConnService: CompConnectionService) { }
 
   ngOnInit(): void {
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
 }

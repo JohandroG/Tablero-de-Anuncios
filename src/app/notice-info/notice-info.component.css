@@ -108,6 +108,8 @@ main{
     width: 100%;
     height: 100%;
     z-index: 10;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
 }
 
 .zoomedimg{
@@ -119,12 +121,22 @@ main{
     max-height: 77vh;
     width: 95vw;
     z-index: 20;
-    margin-top: 5px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    margin-top: 80px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transition: 600ms;
+    -webkit-transition: 600ms;
+    -moz-transition: 600ms;
+    -ms-transition: 600ms;
+    -o-transition: 600ms;
 }
 
 .zoomedimg::-webkit-scrollbar{
@@ -132,14 +144,31 @@ main{
 }
 
 .backbut{
-    margin-top: 79vh;
+    margin-top: 90vh;
     margin-left: 43vw;
     background-color: white;
     color: black;
 }
 
 .disapear{
-    display: none;
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transition: 600ms;
+    -webkit-transition: 600ms;
+    -moz-transition: 600ms;
+    -ms-transition: 600ms;
+    -o-transition: 600ms;
+}
+
+.disapear2{
+    transform: scale(0);
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px){ 
@@ -159,26 +188,25 @@ main{
     .zoomedimg{
         position: fixed;
         top: 0;
-        left: 0;
-        margin: 0px 12.5vw;
         overflow-y: scroll;
         max-height: 77vh;
-        width: 86vw;
+        margin-left: 90px;
+        max-width: 87%;
         z-index: 20;
-        margin-top: 5px;
-        border-radius: 5px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        -ms-border-radius: 5px;
-        -o-border-radius: 5px;
-    }
+        margin-top: 80px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
     
     .zoomedimg::-webkit-scrollbar{
         display: none;
     }
     
     .backbut{
-        margin-top: 79vh;
+        margin-top: 90vh;
         margin-left: 52vw;
         background-color: white;
         color: black;
@@ -203,8 +231,6 @@ main{
         align-items: center;
         justify-content: space-between;
     }
-
-
 
     .info{
         width: 45vw;
@@ -274,15 +300,15 @@ button:hover{
     left: 0;
     margin: 0px 170px;
     overflow-y: scroll;
-    max-height: 98.5vh;
+    max-height: 89vh;
     width: 80vw;
     z-index: 20;
-    margin-top: 5px;
-    border-radius: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
+    margin-top: 60px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .zoomedimg::-webkit-scrollbar{
@@ -291,14 +317,12 @@ button:hover{
 
 .backbut{
     margin-left: 94vw;
-    margin-top: 10px;
+    margin-top: 60px;
     background-color: white;
     color: black;
 }
 
-.disapear{
-    display: none;
-}
+
 
 .information{
     flex-direction: column;

@@ -16,6 +16,9 @@ export class ViewnumsComponent implements OnInit {
 userinfo:any = this._mainComp.userinfo
 
 //--------------------------------------------------------------------------
+
+  searchfor = "numbers"
+
   numbers:any[] = [];
 
   page_size: number = 5
