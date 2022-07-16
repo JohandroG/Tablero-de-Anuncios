@@ -3,7 +3,6 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {UntypedFormControl, FormGroupDirective, UntypedFormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import { flatten } from '@angular/compiler';
 import { AppComponent } from "../app.component";
 import { CompConnectionService } from '../services/comp-connection.service';
 

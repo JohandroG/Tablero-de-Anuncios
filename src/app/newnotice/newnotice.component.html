@@ -51,20 +51,15 @@
             </mat-form-field>
         </div>
 
-
-        
             <div class="file-input">
                 <input class="file" id="file" type="file" name="picture" (change)='selectedIMG($event)' accept="image/png, image/gif, image/jpeg"/>
                 <label for="file" *ngIf="!imgnameprev">Incluye Imagen</label>
                 <label for="file" *ngIf="imgnameprev">{{imgnameprev}}</label>
             </div>
-            
-            
+
             <div>
-                <mat-checkbox class="example-margin" name="importance" [(ngModel)]="newNotice.importance" 
-                labelPosition = "before" color="warn">Importante</mat-checkbox>
+                <mat-slide-toggle [(ngModel)]="newNotice.importance"  name="importance" color="warn"><strong>Importante</strong></mat-slide-toggle>
             </div>
-        
     
         <div class="but">
             <button class="sub" mat-raised-button  color="primary">Publicar</button>

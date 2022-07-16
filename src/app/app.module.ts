@@ -58,6 +58,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
 import { PaginationPipe } from './pipes/pagination.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 //?Others
 import { CountdownModule } from 'ngx-countdown';
@@ -113,6 +114,7 @@ import { CountdownModule } from 'ngx-countdown';
     CountdownModule,
     MatBadgeModule,
     MatProgressBarModule,
+    MatSlideToggleModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
