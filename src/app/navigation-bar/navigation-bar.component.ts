@@ -34,8 +34,8 @@ userinfo:any = "";
 
 filter_value = "";
 
-// navigateURL:string = "/Tablero-de-Anuncios"
-navigateURL:string = ""
+navigateURL:string = "/Tablero-de-Anuncios"
+// navigateURL:string = ""
 
 navInfo = {
   title : "Registros CN",
