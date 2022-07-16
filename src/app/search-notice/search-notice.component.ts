@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 
 
@@ -12,7 +12,7 @@ export class SearchNoticeComponent implements OnInit {
 
   value = '';
 
-  search = new FormControl('');
+  search = new UntypedFormControl('');
 
 
   constructor() { }

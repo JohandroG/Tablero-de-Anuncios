@@ -1,11 +1,11 @@
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {UsersService} from '../services/users.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -32,11 +32,11 @@ msj:any = {};
 
 //!--VARIABLES------------------------------------------------------------------------------------------
 
-codeFormControl = new FormControl('', [Validators.required]);
+codeFormControl = new UntypedFormControl('', [Validators.required]);
 
-passFormControl = new FormControl('', [Validators.required,Validators.minLength(8),Validators.pattern(/^\S*$/)]);
+passFormControl = new UntypedFormControl('', [Validators.required,Validators.minLength(8),Validators.pattern(/^\S*$/)]);
 
-confpassFormControl = new FormControl('', [Validators.required,Validators.minLength(8),Validators.pattern(/^\S*$/)]);
+confpassFormControl = new UntypedFormControl('', [Validators.required,Validators.minLength(8),Validators.pattern(/^\S*$/)]);
 
 matcher = new MyErrorStateMatcher();
 

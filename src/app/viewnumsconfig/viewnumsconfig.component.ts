@@ -1,7 +1,7 @@
 import {PhonesService} from '../services/phones.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, UntypedFormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { flatten } from '@angular/compiler';
 import { AppComponent } from "../app.component";
@@ -13,9 +13,9 @@ import { AppComponent } from "../app.component";
 })
 export class ViewnumsconfigComponent implements OnInit {
 
-  info = new FormControl('', Validators.required)
+  info = new UntypedFormControl('', Validators.required)
   
-  unCallInfo = new FormGroup({
+  unCallInfo = new UntypedFormGroup({
     info: this.info,
   })
 

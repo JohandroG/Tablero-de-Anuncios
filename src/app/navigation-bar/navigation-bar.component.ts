@@ -74,6 +74,7 @@ constructor(private _router:Router,
       if(data.title){
         this.titleService.setTitle(data.title)
       }
+      
     })
   }
 

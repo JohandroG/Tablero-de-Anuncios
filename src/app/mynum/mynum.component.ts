@@ -1,7 +1,7 @@
 import {PhonesService} from '../services/phones.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
-import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, UntypedFormGroup, NgForm, Validators, FormControlName} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { flatten } from '@angular/compiler';
 import { AppComponent } from "../app.component";
@@ -39,14 +39,14 @@ indicator:boolean = false;
 
 //--------------------------------------------------------------
 
-_id = new FormControl('')
-publisher = new FormControl('')
-info = new FormControl('', Validators.required)
-type = new FormControl({value: '', disabled: true}, Validators.required)
-notes = new FormControl({value: '', disabled: true}, Validators.maxLength(200))
-user = new FormControl('')
+_id = new UntypedFormControl('')
+publisher = new UntypedFormControl('')
+info = new UntypedFormControl('', Validators.required)
+type = new UntypedFormControl({value: '', disabled: true}, Validators.required)
+notes = new UntypedFormControl({value: '', disabled: true}, Validators.maxLength(200))
+user = new UntypedFormControl('')
 
-newNumberForm = new FormGroup({
+newNumberForm = new UntypedFormGroup({
   _id: this._id,
   publisher: this.publisher,
   info: this.info,

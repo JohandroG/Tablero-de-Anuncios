@@ -1,13 +1,13 @@
 import {CodesService} from '../services/codes.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { AppComponent } from "../app.component";
 import { CompConnectionService } from '../services/comp-connection.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -56,14 +56,14 @@ userinfo:any = this._mainComp.userinfo
 
 //!--VARIABLES------------------------------------------------------------------------------------------
 
-lastcodeTFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
-codeTFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
+lastcodeTFormControl = new UntypedFormControl('', [Validators.required, Validators.minLength(5)]);
+codeTFormControl = new UntypedFormControl('', [Validators.required, Validators.minLength(5)]);
 
-lastcodeNFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
-codeNFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
+lastcodeNFormControl = new UntypedFormControl('', [Validators.required, Validators.minLength(5)]);
+codeNFormControl = new UntypedFormControl('', [Validators.required, Validators.minLength(5)]);
 
-lastcodeRFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
-codeRFormControl = new FormControl('', [Validators.required, Validators.minLength(5)]);
+lastcodeRFormControl = new UntypedFormControl('', [Validators.required, Validators.minLength(5)]);
+codeRFormControl = new UntypedFormControl('', [Validators.required, Validators.minLength(5)]);
 
 matcher = new MyErrorStateMatcher();
 

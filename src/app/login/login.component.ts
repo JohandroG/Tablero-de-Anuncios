@@ -1,12 +1,12 @@
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {UsersService} from '../services/users.service';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {UntypedFormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { CompConnectionService } from '../services/comp-connection.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+  isErrorState(control: UntypedFormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
@@ -36,9 +36,9 @@ navInfo = {
   errors:any = {};
 //!--VARIABLES------------------------------------------------------------------------------------------
 
-emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+emailFormControl = new UntypedFormControl('', [Validators.required, Validators.email]);
 
-passFormControl = new FormControl('', [Validators.required, Validators.minLength(8)]);
+passFormControl = new UntypedFormControl('', [Validators.required, Validators.minLength(8)]);
 
 matcher = new MyErrorStateMatcher();
 
