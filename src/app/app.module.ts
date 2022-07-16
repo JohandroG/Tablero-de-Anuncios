@@ -37,8 +37,7 @@ import { DateformatPipe } from './pipes/dateformat.pipe';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {fas} from '@fortawesome/free-solid-svg-icons'
 import {far} from '@fortawesome/free-regular-svg-icons';
-import { PaginationPipe } from './pipes/pagination.pipe';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 //?AngularMaterial
@@ -57,6 +56,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatBadgeModule} from '@angular/material/badge';
+import { PaginationPipe } from './pipes/pagination.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //?Others
 import { CountdownModule } from 'ngx-countdown';

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { AppComponent } from "../app.component";
+import { CompConnectionService } from '../services/comp-connection.service';
 @Component({
   selector: 'app-numupdated',
   templateUrl: './numupdated.component.html',
@@ -8,6 +9,12 @@ import { AppComponent } from "../app.component";
 })
 export class NumupdatedComponent implements OnInit {
 
+  navInfo = {
+    title: "Mi número actualizado",
+    search : false,
+    profile: true,
+    utilities: false
+  }
 
   message:any = "";
 
@@ -17,12 +24,18 @@ export class NumupdatedComponent implements OnInit {
   constructor(
     private _router:Router,
     private _route:ActivatedRoute,
-    private _mainComp:AppComponent
+    private _mainComp:AppComponent,
+    private _compConnService: CompConnectionService
     ) { }
 
   ngOnInit(): void {
     this.protectURL();
     this.generateGoodMSJ();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
   protectURL():void{

@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, OnInit, Output, QueryList, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { CompConnectionService } from '../services/comp-connection.service';
-
+import {Title} from "@angular/platform-browser";
 //? Icons
 
 
@@ -21,6 +21,9 @@ export class NavigationBarComponent implements OnInit {
 @ViewChild('profileinfo') profileinfo: ElementRef<any> | undefined;
 
 
+@ViewChildren('tab') tab: QueryList<any> | undefined;
+
+
 //!--VARIABLES------------------------------------------------------------------------------------------
 deftrue = true
 deffalse = false
@@ -38,8 +41,10 @@ navInfo = {
   title : "Registros CN",
   search: false,
   profile: false,
-  utilities: false
+  utilities: false,
+  selected: ""
 }
+
 
 
 profindicator:any = false;
@@ -51,21 +56,36 @@ profindicator:any = false;
 constructor(private _router:Router,
   private _route:ActivatedRoute,
   private _compConnService: CompConnectionService,
-  private renderer2: Renderer2,) { 
+  private renderer2: Renderer2,
+  private titleService:Title) { 
   }
 
 
   ngOnInit(): void {
     this.verifysession();
     this.getNavInfo();
+    this.changeselected();
   }
-
 
 
   getNavInfo(): void{
     this._compConnService.navinfo.subscribe(data=>{
       this.navInfo = data
+      if(data.title){
+        this.titleService.setTitle(data.title)
+      }
     })
+  }
+
+  changeselected():void{
+      setTimeout(()=>{
+        this.tab?.forEach(element=>{
+          const linkval = element.nativeElement.href
+          if (linkval == window.location.href) {
+            this.renderer2.addClass(element.nativeElement,'selected')
+          }
+        })
+      })
   }
 
   handleSearch(value:string){
@@ -86,8 +106,6 @@ constructor(private _router:Router,
     this.linktext?.forEach(element=>{
       this.renderer2.addClass(element.nativeElement,'link-texthov')
     })
-
-    
   }
 
   mobilemenudisappear():void{

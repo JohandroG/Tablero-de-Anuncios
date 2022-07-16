@@ -4,6 +4,7 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { AppComponent } from "../app.component";
+import { CompConnectionService } from '../services/comp-connection.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,6 +22,13 @@ export class CodesComponent implements OnInit {
 
 
 //!--VARIABLES------------------------------------------------------------------------------------------
+navInfo = {
+  title: "Codigos de acceso",
+  search : false,
+  profile: true,
+  utilities: false
+}
+
 
 totalcode:any = {
   oldcode : "",
@@ -62,13 +70,19 @@ matcher = new MyErrorStateMatcher();
   constructor(private _HttpNoticesService: CodesService,
     private _router:Router,
     private _route:ActivatedRoute,
-    private _mainComp:AppComponent
+    private _mainComp:AppComponent,
+    private _compConnService: CompConnectionService
     ) { }
 
 
 
   ngOnInit(): void {
     this.protectURL();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
   protectURL():void{

@@ -17,25 +17,25 @@
         </li>
 
         <li class="nav-item">
-            <a href="{{navigateURL}}/" class="nav-link selected">
-                <fa-icon [icon]="['fas','newspaper']"></fa-icon>
+            <a href="{{navigateURL}}/" class="nav-link" #tab>
+                <fa-icon [icon]="['fas','th']"></fa-icon>
                 <span class="link-text" #linktext>Anuncios</span>
             </a>
         </li>
         <li *ngIf="admintype" class="nav-item">
-            <a href="{{navigateURL}}/llamadas/iniciar" class="nav-link">
+            <a href="{{navigateURL}}/llamadas/iniciar" class="nav-link" #tab>
                 <fa-icon [icon]="['fas','phone']"></fa-icon>
                 <span class="link-text" #linktext>Llamadas</span>
             </a>
         </li>
         <li *ngIf="!admintype" class="nav-item">
-            <a href="{{navigateURL}}/ingresar" class="nav-link">
+            <a href="{{navigateURL}}/ingresar" class="nav-link" #tab>
                 <fa-icon [icon]="['fas','sign-in-alt']"></fa-icon>
                 <span class="link-text" #linktext>Iniciar Sesión</span>
             </a>
         </li>
         <li *ngIf="!admintype" class="nav-item">
-            <a href="{{navigateURL}}/registarse" class="nav-link">
+            <a href="{{navigateURL}}/registarse" class="nav-link" #tab>
                 <fa-icon [icon]="['fas','pencil-alt']"></fa-icon>
                 <span class="link-text" #linktext>Registarme</span>
             </a>
@@ -43,37 +43,37 @@
 
 
         <li *ngIf="admintype === 'Normal' || admintype == 'Total'" class="nav-item">
-            <a href="{{navigateURL}}/nuevo/anuncio" class="nav-link">
+            <a href="{{navigateURL}}/nuevo/anuncio" class="nav-link" #tab>
                 <fa-icon [icon]="['fas','feather']"></fa-icon>
                 <span class="link-text" #linktext>Publicar Anuncio</span>
             </a>
         </li>
         <li *ngIf="admintype === 'Normal' || admintype == 'Total'" class="nav-item">
-            <a href="{{navigateURL}}/ver/registros" class="nav-link">
-                <fa-icon [icon]="['fas','glasses']"></fa-icon>
+            <a href="{{navigateURL}}/ver/registros" class="nav-link" #tab>
+                <fa-icon [icon]="['fas','book']"></fa-icon>
                 <span class="link-text" #linktext>Ver Registros</span>
             </a>
         </li>
         <li *ngIf="admintype" class="nav-item">
-            <a href="{{navigateURL}}/perfil/personal" class="nav-link">
-                <fa-icon [icon]="['fas','address-card']"></fa-icon>
+            <a href="{{navigateURL}}/perfil/personal" class="nav-link" #tab>
+                <fa-icon [icon]="['fas','user-tag']"></fa-icon>
                 <span class="link-text" #linktext>Mi perfil</span>
             </a>
         </li>
         <li *ngIf="admintype == 'Total'" class="nav-item">
-            <a href="{{navigateURL}}/modificar/codigos" class="nav-link">
+            <a href="{{navigateURL}}/modificar/codigos" class="nav-link" #tab>
                 <fa-icon [icon]="['fas','key']"></fa-icon>
                 <span class="link-text" #linktext>Editar Codigos</span>
             </a>
         </li>
         <li *ngIf="admintype" class="nav-item">
-            <a href="#" class="nav-link" (click)='logout()'>
+            <a href="#" class="nav-link" (click)='logout()' #tab>
                 <fa-icon [icon]="['fas','sign-out-alt']"></fa-icon>
                 <span class="link-text" #linktext>Cerrar Sesión</span>
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{navigateURL}}/info/app/versions" class="nav-link">
+            <a href="{{navigateURL}}/info/app/versions" class="nav-link" #tab>
                 <fa-icon [icon]="['fas','info-circle']"></fa-icon>
                 <span class="link-text" #linktext>Información</span>
             </a>

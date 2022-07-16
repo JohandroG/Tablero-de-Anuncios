@@ -4,6 +4,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import {NoticesService} from '../services/notices.service';
 import { AppComponent } from "../app.component";
+import { CompConnectionService } from '../services/comp-connection.service';
 
 
 @Component({
@@ -12,6 +13,12 @@ import { AppComponent } from "../app.component";
   styleUrls: ['./notice-info.component.css']
 })
 export class NoticeInfoComponent implements OnInit {
+  navInfo = {
+    title: "Info. Anuncio",
+    search : false,
+    profile: true,
+    utilities: false
+  }
 
   _id:string = ''
 
@@ -29,11 +36,17 @@ userinfo:any = this._mainComp.userinfo
     private _router:Router,
     private _route:ActivatedRoute,
     private renderer2: Renderer2,
-    private _mainComp:AppComponent
+    private _mainComp:AppComponent,
+    private _compConnService: CompConnectionService
     ) { }
 
   ngOnInit(): void {
     this.loadNoticeInfo();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
 

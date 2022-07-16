@@ -3,6 +3,7 @@ import {PhonesService} from '../services/phones.service';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { AppComponent } from "../app.component";
+import { CompConnectionService } from '../services/comp-connection.service';
 
 @Component({
   selector: 'app-viewnums',
@@ -11,7 +12,14 @@ import { AppComponent } from "../app.component";
 })
 export class ViewnumsComponent implements OnInit {
 
+  navInfo = {
+    title: "Lista de Registros",
+    search : false,
+    profile: true,
+    utilities: false
+  }
 
+  
 //*USER-INFO
 userinfo:any = this._mainComp.userinfo
 
@@ -37,12 +45,18 @@ userinfo:any = this._mainComp.userinfo
   constructor(private _phoneService:PhonesService,
     private _router:Router,
     private _route:ActivatedRoute,
-    private _mainComp:AppComponent
+    private _mainComp:AppComponent,
+    private _compConnService: CompConnectionService
     ) { }
 
   ngOnInit(): void {
     this.loadnums();
     this.protectURL();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
   protectURL():void{

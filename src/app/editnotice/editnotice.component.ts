@@ -4,6 +4,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import {NoticesService} from '../services/notices.service';
 import { AppComponent } from "../app.component";
+import { CompConnectionService } from '../services/comp-connection.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -20,6 +21,13 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class EditnoticeComponent implements OnInit {
 
   //!--VARIABLES------------------------------------------------------------------------------------------
+  navInfo = {
+    title: "Editar Anuncio",
+    search : false,
+    profile: true,
+    utilities: false
+  }
+
 
 newNotice:any = {
   title: "",
@@ -68,13 +76,19 @@ userinfo:any = this._mainComp.userinfo
     private _router:Router,
     private _route:ActivatedRoute,
     private renderer2: Renderer2,
-    private _mainComp:AppComponent
+    private _mainComp:AppComponent,
+    private _compConnService: CompConnectionService
     ) { }
 
 
   ngOnInit(): void {
     this.loadNoticeInfo();
     this.protectURL();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
   protectURL():void{

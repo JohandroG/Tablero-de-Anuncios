@@ -5,6 +5,7 @@ import {FormControl, FormGroupDirective, FormGroup, NgForm, Validators, FormCont
 import {ErrorStateMatcher} from '@angular/material/core';
 import { flatten } from '@angular/compiler';
 import { AppComponent } from "../app.component";
+import { CompConnectionService } from '../services/comp-connection.service';
 
 @Component({
   selector: 'app-mynum',
@@ -17,6 +18,14 @@ import { AppComponent } from "../app.component";
 export class MynumComponent implements OnInit {
 
 //!--------------------VARIABLES----------------------------------------------------------------------------
+navInfo = {
+  title: "Mi número telefónico",
+  search : false,
+  profile: true,
+  utilities: false
+}
+
+
 numberinfo:any = {};
 
 //*USER-INFO
@@ -63,13 +72,19 @@ panelOpenState = false;
       private _router:Router,
       private _route:ActivatedRoute,
       private renderer2: Renderer2,
-      private _mainComp:AppComponent
+      private _mainComp:AppComponent,
+      private _compConnService: CompConnectionService
       ) { }
 
   ngOnInit(): void {
     this.protectURL();
     this.getNum();
     this.getFromSession();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
   protectURL():void{

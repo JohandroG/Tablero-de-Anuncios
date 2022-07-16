@@ -3,6 +3,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 import {NoticesService} from '../services/notices.service';
 import {PhonesService} from '../services/phones.service';
 import { AppComponent } from "../app.component";
+import { CompConnectionService } from '../services/comp-connection.service';
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
@@ -11,6 +12,7 @@ import { AppComponent } from "../app.component";
 export class MyProfileComponent implements OnInit {
 
 //!--VARIABLES------------------------------------------------------------------------------------------
+
 
 infoToUpdate = {
   firstname : "",
@@ -25,6 +27,13 @@ infoToUpdate = {
 //*USER-INFO
 userinfo:any = this._mainComp.userinfo
 
+navInfo = {
+  title: `${this.userinfo.firstname} ${this.userinfo.lastname}`,
+  search : false,
+  profile: false,
+  utilities: false
+}
+
 reserved:any = {}
 
 //!--VARIABLES------------------------------------------------------------------------------------------
@@ -34,12 +43,18 @@ reserved:any = {}
     private _HttpPhonesService: PhonesService,
     private _router:Router,
     private _route:ActivatedRoute,
-    private _mainComp:AppComponent
+    private _mainComp:AppComponent,
+    private _compConnService: CompConnectionService
     ) { }
 
   ngOnInit(): void {
     this.protectURL();
     this.loadreserved();
+    this.emitNavInfo();
+  }
+
+  emitNavInfo(){
+    this._compConnService.navinfo.emit(this.navInfo)
   }
 
   protectURL():void{

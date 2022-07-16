@@ -15,6 +15,7 @@ export class AboutComponent implements OnInit {
   }
 
 
+
   constructor(private _compConnService: CompConnectionService) { }
 
   ngOnInit(): void {

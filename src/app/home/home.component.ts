@@ -22,7 +22,8 @@ navInfo = {
   title: "Tablero de Anuncios",
   search : true,
   profile: true,
-  utilities: false
+  utilities: false,
+  selected: "anuncios"
 }
 
 //?-----------------------Variables to pipe notices---------------------------------------------
@@ -73,7 +74,6 @@ loader:boolean = true
 
   handleSearch(){
     this._compConnService.searchinfo.subscribe(data=>{
-      console.log(data);
       this.filter_value = data
     })
   }
