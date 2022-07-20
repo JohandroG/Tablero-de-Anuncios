@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1658000243083,
+  "timestamp": 1658339678930,
   "index": "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://JohandroG.github.io/Tablero-de-Anuncios/favicon.ico",
         "https://JohandroG.github.io/Tablero-de-Anuncios/index.html",
-        "https://JohandroG.github.io/Tablero-de-Anuncios/main.35565f53c6dea385.js",
+        "https://JohandroG.github.io/Tablero-de-Anuncios/main.5823c6b9e7742a32.js",
         "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest",
         "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.a3cc13cfcacdbf05.js",
         "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js",
@@ -73,8 +73,8 @@
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/icons/icon-96x96.png": "428c21692ad964bd1f58075766486ad51c57a22a",
     "https://JohandroG.github.io/Tablero-de-Anuncios/assets/images/logo.png": "95c297a69cbdee27bf248e77e40e8dfc0b27029d",
     "https://JohandroG.github.io/Tablero-de-Anuncios/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "2a7092cd21ed9aaa2a0e16299e83baa0ebb70f0f",
-    "https://JohandroG.github.io/Tablero-de-Anuncios/main.35565f53c6dea385.js": "d196ca290e882f900addae501cbfa326475f411b",
+    "https://JohandroG.github.io/Tablero-de-Anuncios/index.html": "4213e2159b9be6780f7c0b7ed30da5c77c75e84a",
+    "https://JohandroG.github.io/Tablero-de-Anuncios/main.5823c6b9e7742a32.js": "12784ecc4841ab9966f868e19198d07f53352795",
     "https://JohandroG.github.io/Tablero-de-Anuncios/manifest.webmanifest": "34e145850f2a6208b582036f4825b889ffb42661",
     "https://JohandroG.github.io/Tablero-de-Anuncios/polyfills.a3cc13cfcacdbf05.js": "2548113dcea2c20edbd3f22909bbd9d2afd55ad1",
     "https://JohandroG.github.io/Tablero-de-Anuncios/runtime.83e8bb47ff5ce0ea.js": "8b40ba8975daa186e146fa43a17058706f985c55",
